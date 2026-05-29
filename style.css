@@ -1,3 +1,17 @@
+
+/* ========================================= */
+/* GLOBAL OVERFLOW FIX */
+/* ========================================= */
+
+html,
+body {
+
+    overflow-x: hidden;
+
+    width: 100%;
+}
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -471,24 +485,108 @@ section {
     transition: 0.3s ease;
 }
 
+
 /* ========================================= */
-/* MOBILE NAVBAR */
+/* MOBILE NAVBAR FIX */
 /* ========================================= */
 
 @media (max-width: 768px) {
 
+    /* NAV CONTAINER */
+    .nav-container {
+
+        position: relative;
+
+        height: 72px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding-left: 16px;
+        padding-right: 12px;
+    }
+
+    /* IMPORTANT FIX */
+    nav {
+
+        width: auto;
+
+        flex: 0;
+    }
+
+    /* LOGO */
+    .logo {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        font-size: 1rem;
+
+        flex-shrink: 0;
+    }
+
+    .logo img {
+
+        width: 34px;
+        height: 34px;
+    }
+
+    /* HAMBURGER */
     .menu-toggle {
 
         display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        width: 34px;
+        height: 34px;
+
+        margin: 0;
+
+        padding: 0;
+
+        flex-shrink: 0;
     }
 
+    .menu-toggle span {
+
+        width: 22px;
+        height: 2px;
+
+        border-radius: 10px;
+
+        background: white;
+    }
+
+    /* MOBILE MENU */
     .nav-links {
 
-        position: absolute;
+        position: fixed;
 
-        top: 95px;
-        left: 20px;
-        right: 20px;
+        top: 82px;
+        left: 16px;
+        right: 16px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 24px;
+
+        padding: 30px;
 
         background: rgba(18, 20, 23, 0.98);
 
@@ -498,30 +596,18 @@ section {
 
         border-radius: 24px;
 
-        padding: 30px;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 24px;
-
-        display: none;
-
         box-shadow:
             0 0 40px rgba(0, 0, 0, 0.35);
+
+        z-index: 999;
     }
 
     .nav-links.active {
 
         display: flex;
     }
-
-	.nav-container { padding-left: 18px; padding-right: 12px; } .menu-toggle { width: 36px; height: 36px; }
-	.container { padding-left: 18px; padding-right: 18px; }
 }
+
 
 
 /* ========================================= */
@@ -1174,6 +1260,8 @@ section {
 	border: 1px solid rgba(255, 255, 255, 0.08);
 
 	box-shadow: 0 0 40px rgba(255, 107, 0, 0.08);
+
+	max-width: 45%;
 }
 
 .about-image-small img {
@@ -1723,6 +1811,8 @@ section {
     color: var(--primary-color);
 }
 
+.business-stats { overflow: hidden; } .business-stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; } .business-stat-item { min-width: 0; padding: 30px 20px; } .business-stat-item h2 { font-size: clamp(2rem, 5vw, 3rem); word-break: break-word; } /* ========================================= */ /* TABLET */ /* ========================================= */ @media (max-width: 992px) { .business-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* ========================================= */ /* MOBILE */ /* ========================================= */ @media (max-width: 576px) { .business-stats-grid { grid-template-columns: 1fr; } .business-stat-item { padding: 26px 18px; } .business-stat-item h2 { font-size: 2.2rem; } }
+
 
 /* ========================================= */
 /* REVIEWS SECTION */
@@ -1750,16 +1840,7 @@ section {
 /* REVIEWS TRACK */
 /* ========================================= */
 
-.reviews-track {
-
-    display: flex;
-
-    gap: 28px;
-
-    width: max-content;
-
-    animation: marqueeScroll 35s linear infinite;
-}
+.reviews-track { display: flex; gap: 28px; width: fit-content; min-width: max-content; animation: marqueeScroll 35s linear infinite; }
 
 /* ========================================= */
 /* MARQUEE ANIMATION */
@@ -1922,5 +2003,21 @@ section {
 
         width: 50px;
         height: 50px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    * {
+
+        max-width: 100%;
+    }
+
+    img {
+
+        max-width: 100%;
+
+        height: auto;
     }
 }
