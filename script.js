@@ -555,6 +555,63 @@ fetch("data/site-data.json")
 		if (footerCopyright) {
 			footerCopyright.innerText = data.footer.copyright;
 		}
+
+        // =========================================
+        // TRUST STRIP
+        // =========================================
+
+        const trustStripContainer = document.getElementById("trust-strip-container");
+
+        if (trustStripContainer && data.trustStrip && Array.isArray(data.trustStrip)) {
+            trustStripContainer.innerHTML = `
+                <div class="trust-strip-inner">
+                    ${data.trustStrip
+                        .map(
+                            (item) => `
+                                <div class="trust-item">
+                                    ${item.logo ? `<img src="${item.logo}" alt="${item.title}" loading="lazy">` : ""}
+                                    <span class="trust-title">${item.title}</span>
+                                </div>
+                            `
+                        )
+                        .join("")}
+                </div>
+            `;
+        }
+
+        // =========================================
+        // FAQ
+        // =========================================
+
+        const faqContainer = document.getElementById("faq-container");
+
+        if (faqContainer && data.faq && Array.isArray(data.faq)) {
+            data.faq.forEach((item, idx) => {
+                faqContainer.innerHTML += `
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-${idx}">
+                            <span class="question-text">${item.question}</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+
+                        <div id="faq-${idx}" class="faq-answer" hidden>
+                            ${item.answer}
+                        </div>
+                    </div>
+                `;
+            });
+
+            faqContainer.addEventListener("click", (e) => {
+                const btn = e.target.closest(".faq-question");
+                if (!btn) return;
+                const panel = document.getElementById(btn.getAttribute("aria-controls"));
+                const expanded = btn.getAttribute("aria-expanded") === "true";
+                btn.setAttribute("aria-expanded", String(!expanded));
+                if (panel) panel.hidden = expanded;
+                const toggle = btn.querySelector(".faq-toggle");
+                if (toggle) toggle.innerText = expanded ? "+" : "−";
+            });
+        }
 	})
 
 	.catch((error) => {

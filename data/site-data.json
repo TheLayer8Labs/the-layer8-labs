@@ -8,7 +8,7 @@
 
 		"primaryButtonText": "Explore Portfolio",
 
-		"primaryButtonLink": "#portfolio",
+		"primaryButtonLink": "#gallery",
 
 		"secondaryButtonText": "Contact Us",
 
@@ -239,6 +239,48 @@
 		"linkedin": "https://linkedin.com/company/thelayer8labs"
 	},
 
+	"faq": [
+		{
+			"question": "What file formats do you accept for 3D printing?",
+			"answer": "We accept most common 3D file formats including STL, OBJ, and STEP. If your file needs repair, we can help prepare it for printing."
+		},
+		{
+			"question": "What materials do you offer?",
+			"answer": "We offer PLA, PETG, ABS, ASA, Nylon, Carbon-fiber reinforced filaments for FDM, and a selection of standard and engineering resins for SLA."
+		},
+		{
+			"question": "Can you help with design or file fixes?",
+			"answer": "Yes — we provide CAD adjustments, file repair, and advice on design for manufacturability. Contact us with your requirements."
+		},
+		{
+			"question": "Do you provide batch products manufacturing?",
+			"answer": "Absolutely, in fact that is one of our strenghts with the quality of machines and materials we use, we can provide very consistent and repitative 3d printed products."
+		}
+	],
+
+	"trustStrip": [
+		{
+			"title": "GST Registered",
+			"logo": "images/icons/trust/gst.png"
+		},
+		{
+			"title": "MSME Registered Enterprise",
+			"logo": "images/icons/trust/msme.png"
+		},
+		{
+			"title": "Assured Quality",
+			"logo": "images/icons/trust/quality.webp"
+		},
+		{
+			"title": "Made in India",
+			"logo": "images/icons/trust/made-in-india.png"
+		},
+		{
+			"title": "On-time Delivery",
+			"logo": "images/icons/trust/on-time.png"
+		}
+	],
+
 	"footer": {
 		"brandName": "The Layer8 Labs",
 
@@ -309,6 +351,6 @@
 			}
 		],
 
-		"copyright": "© 2026 The Layer8 Labs. All Rights Reserved."
+		"copyright": "© 2026 The Layer8 Labs. All Rights Reserved. Made with ♥ in India."
 	}
 }
