@@ -859,6 +859,27 @@ section {
 	.hero-description {
 		font-size: 1rem;
 	}
+
+	/* Stack hero columns and ensure image fills width on small screens */
+	.hero-container {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	.hero-image {
+		width: 100%;
+		order: 2;
+	}
+
+	.hero-content {
+		order: 1;
+	}
+
+	.hero-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
 }
 
 @media (max-width: 576px) {
