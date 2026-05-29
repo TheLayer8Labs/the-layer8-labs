@@ -138,7 +138,10 @@
 			"name": "Dhirendra Singh",
 			"designation": "Retial Client",
 			"company": "",
-			"image": "images/reviews/review1.jpg",
+			"images": [
+				"images/reviews/dhirendra/image1.jpg",
+				"images/reviews/dhirendra/image2.jpg"
+			],
 			"review": "I am incredibly impressed with this Su-57 Felon 3D-printed model. The level of detail in the digital camouflage is fantastic, and the colors are vibrant and sharp.\n\n​What stands out most is the build quality—it is very durable and feels much sturdier than your average 3D print. It looks amazing on my desk, and I really loved the product. Highly recommended for any aviation fan!"
 		},
 
@@ -146,7 +149,9 @@
 			"name": "Atindra Mondal",
 			"designation": "Retial Client",
 			"company": "",
-			"image": "images/reviews/review2.jpg",
+			"images": [
+				"images/reviews/atindra/image1.jpg"
+			],
 			"review": "Very impressive work with very innocent behaviour just like my own brother....Once again thank you dada for making this dream beyblade..."
 		},
 
@@ -154,7 +159,10 @@
 			"name": "Trisha Das",
 			"designation": "Retial Client",
 			"company": "",
-			"image": "images/reviews/review3.jpg",
+			"images": [
+				"images/reviews/trisha/image1.webp",
+				"images/reviews/trisha/image2.webp"
+			],
 			"review": "I am very happy and impressed with this pikachu pokeball 3D print. Quality is really good, despite how it looks it is smooth to the touch and since it has been assembled from parts it gives the overall structure more stability and rigidness.\n\nThe experience is very good, happy to add one of my childhood favourite, and will add more in future.\n\nYou can also make your own collection of pokaballs."
 		},
 
@@ -162,7 +170,6 @@
 			"name": "Snehasish Nath",
 			"designation": "Retail Client",
 			"company": "",
-			"image": "images/reviews/review4.jpg",
 			"review": "Amazing service - got my model made so quick while keeping great quality!"
 		},
 
@@ -170,7 +177,10 @@
 			"name": "Bishwajit Kumar Poddar",
 			"designation": "Retail Client",
 			"company": "",
-			"image": "images/reviews/review5.jpg",
+			"images": [
+				"images/reviews/biswajit/image1.webp",
+				"images/reviews/biswajit/image2.webp"
+			],
 			"review": "One of the best and most affordable 3D printing services in Kolkata!\n\nI got a custom adapter printed for my DIY air purifier setup using an Atomberg exhaust fan and a Mi air filter. Based on his suggestion, I went with PETG instead of regular PLA — and that turned out to be a brilliant choice.\n\nThe adapter has fallen multiple times while cleaning the floor, but it still looks and works perfectly. Super strong print quality, great material recommendation, and excellent overall experience.\n\nHighly recommended if you need durable, well-made 3D printed parts without spending a fortune."
 		},
 
@@ -178,7 +188,10 @@
 			"name": "Sam",
 			"designation": "Retail Client",
 			"company": "",
-			"image": "images/reviews/review6.jpg",
+			"images": [
+				"images/reviews/sam/image1.webp",
+				"images/reviews/sam/image2.webp"
+			],
 			"review": "Layer8 Labs is my absolute go to place for 3D prints. Gaurav is always eager to help, and the quality of his prints is consistently exceptional. He is incredibly accommodating throughout the entire process.\n\nI remember having an issue with one of my 3D files a while back, and he went completely out of his way to fix the file himself to ensure it turned out perfectly. The prints are always great, the pricing is right on point, and it’s overall a complete pleasure working with him. I would highly recommend Layer8 Labs to anyone looking for a serious, high quality 3D printing service!"
 		}
 	],

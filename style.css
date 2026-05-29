@@ -1992,15 +1992,23 @@ section {
 /* REVIEW IMAGE */
 /* ========================================= */
 
-.review-user img {
+.review-avatar {
 	width: 58px;
 	height: 58px;
 
-	object-fit: cover;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 
 	border-radius: 50%;
 
+	background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,255,255,0.08));
 	border: 2px solid rgba(255, 107, 0, 0.2);
+
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: white;
+	letter-spacing: 0.02em;
 }
 
 /* ========================================= */
@@ -2148,10 +2156,101 @@ section {
 		padding: 26px;
 	}
 
-	.review-user img {
+	.review-avatar {
 		width: 50px;
 		height: 50px;
 	}
+}
+
+.review-media {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 18px;
+}
+
+.review-thumbnail {
+	border: none;
+	background: transparent;
+	padding: 0;
+	border-radius: 14px;
+	overflow: hidden;
+	cursor: pointer;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.review-thumbnail img {
+	display: block;
+	width: 100px;
+	height: 72px;
+	object-fit: cover;
+}
+
+.review-image-popup {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	place-items: center;
+	background: rgba(0, 0, 0, 0.55);
+	padding: 24px;
+	z-index: 9999;
+}
+
+.review-image-popup.hidden,
+.review-image-popup[hidden] {
+	display: none;
+}
+
+.review-image-popup-backdrop {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.55);
+}
+
+.review-image-popup-content {
+	position: relative;
+	z-index: 1;
+	max-width: min(96vw, 840px);
+	width: 100%;
+	background: rgba(15, 15, 18, 0.98);
+	padding: 18px;
+	border-radius: 18px;
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.review-image-popup-content img {
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	object-fit: contain;
+}
+
+.review-image-popup .popup-close {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	background: rgba(255, 255, 255, 0.07);
+	border: none;
+	color: white;
+	font-size: 1.4rem;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.review-image-popup .popup-caption {
+	color: var(--text-secondary);
+	font-size: 0.92rem;
 }
 
 @media (max-width: 768px) {

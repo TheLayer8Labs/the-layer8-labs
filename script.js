@@ -6,6 +6,16 @@ const menuToggle = document.getElementById("menu-toggle");
 
 const navLinks = document.getElementById("nav-links");
 
+const getInitials = (name) => {
+	return name
+		.split(" ")
+		.filter(Boolean)
+		.map((word) => word[0])
+		.slice(0, 2)
+		.join("")
+		.toUpperCase();
+};
+
 menuToggle.addEventListener("click", () => {
 	navLinks.classList.toggle("active");
 });
@@ -309,17 +319,47 @@ fetch("data/site-data.json")
 
 		const reviewsContainer = document.getElementById("reviews-container");
 
+		const reviewPopup = document.createElement("div");
+	reviewPopup.className = "review-image-popup";
+	reviewPopup.hidden = true;
+	reviewPopup.innerHTML = `
+		<div class="review-image-popup-backdrop"></div>
+		<div class="review-image-popup-content">
+			<button type="button" class="popup-close" aria-label="Close image">×</button>
+			<img src="" alt="Review image" />
+			<div class="popup-caption"></div>
+		</div>
+	`;
+	document.body.appendChild(reviewPopup);
+
+	reviewPopup.addEventListener("click", (event) => {
+		if (
+			event.target.matches(".popup-close") ||
+			event.target.matches(".review-image-popup-backdrop")
+		) {
+			reviewPopup.hidden = true;
+			reviewPopup.querySelector("img").src = "";
+		}
+	});
+
 		if (reviewsContainer) {
 			const duplicatedReviews = [...data.reviews, ...data.reviews];
 
 			duplicatedReviews.forEach((review) => {
+				const reviewImages = Array.isArray(review.images) && review.images.length
+					? review.images.slice(0, 3)
+					: review.image
+					? [review.image]
+					: [];
+				const hasImages = reviewImages.length > 0;
+
 				reviewsContainer.innerHTML += `
 
                     <div class="review-card">
 
                         <div class="review-user">
 
-                            <img src="${review.image}" alt="${review.name}">
+                            <div class="review-avatar">${getInitials(review.name)}</div>
 
                             <div class="review-user-info">
 
@@ -335,6 +375,23 @@ fetch("data/site-data.json")
                             </div>
 
                         </div>
+
+                        ${hasImages ? `<div class="review-media">
+                            ${reviewImages
+                                .map(
+                                    (src, idx) => `
+                                <button
+                                    type="button"
+                                    class="review-thumbnail"
+                                    data-review-image="${src}"
+                                    data-review-caption="${review.name} image ${idx + 1}"
+                                    aria-label="View image ${idx + 1}"
+                                >
+                                    <img src="${src}" alt="${review.name} image ${idx + 1}" loading="lazy">
+                                </button>`,
+                                )
+                                .join("")}
+                        </div>` : ""}
 
                         <div class="review-stars">
                             ★★★★★
@@ -359,6 +416,19 @@ fetch("data/site-data.json")
                     </div>
 
                 `;
+			});
+
+			reviewsContainer.addEventListener("click", (event) => {
+				const thumb = event.target.closest(".review-thumbnail");
+				if (!thumb) return;
+				const imageSrc = thumb.dataset.reviewImage;
+				const caption = thumb.dataset.reviewCaption || "Review image";
+				const popupImage = reviewPopup.querySelector("img");
+				const popupCaption = reviewPopup.querySelector(".popup-caption");
+				if (popupImage) popupImage.src = imageSrc;
+				if (popupImage) popupImage.alt = caption;
+				if (popupCaption) popupCaption.textContent = caption;
+				reviewPopup.hidden = false;
 			});
 		}
 
