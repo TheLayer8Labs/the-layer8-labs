@@ -1,0 +1,314 @@
+{
+	"hero": {
+		"tag": "PRECISION 3D PRINTING & PRODUCT DESIGN",
+
+		"title": "From Prototype to Production",
+
+		"description": "High-quality FDM and SLA printing solutions for rapid prototyping, functional engineering parts, custom products, and low-volume manufacturing.",
+
+		"primaryButtonText": "Explore Portfolio",
+
+		"primaryButtonLink": "#portfolio",
+
+		"secondaryButtonText": "Contact Us",
+
+		"secondaryButtonLink": "#contact",
+
+		"heroImage": "images/hero/hero-main.png",
+
+		"stats": [
+			{
+				"value": "FDM + SLA",
+				"label": "Dual technology workflows"
+			},
+			{
+				"value": "Range of Materials",
+				"label": "PLA, PETG, ASA, PA, CF, etc"
+			},
+			{
+				"value": "High Precision",
+				"label": "Powered by Bambu Lab series of printers"
+			}
+		]
+	},
+
+	"about": {
+		"tag": "ABOUT US",
+
+		"title": "Engineering Precision Through Additive Manufacturing",
+
+		"description1": "The Layer8 Labs specializes in high-quality FDM and SLA 3D printing services for rapid prototyping, engineering applications, low-volume manufacturing, and custom product development.",
+
+		"description2": "We focus on precision, consistency, material expertise, and premium finishing to deliver reliable manufacturing solutions for creators, startups, engineers, and businesses.",
+
+		"mainImage": "images/about/about-main.png",
+
+		"secondaryImage": "images/about/about-detail.jpg",
+
+		"features": [
+            "Architectural Scaled Models",
+			"Precision FDM & SLA Printing",
+			"Functional Engineering Parts",
+			"Rapid Prototype Development",
+			"Low Volume Manufacturing",
+			"Engineering Grade Materials"
+		],
+
+		"stats": [
+			{
+				"title": "5+ Years",
+				"description": "Experience in CAD Designing"
+			},
+			{
+				"title": "3+ Years",
+				"description": "Experience in Print Technology"
+			}
+		]
+	},
+
+	"businessStats": [
+		{
+			"number": "60+",
+			"label": "Orders Completed"
+		},
+
+		{
+			"number": "30+",
+			"label": "Happy Customers"
+		},
+
+		{
+			"number": "1500+",
+			"label": "Printing Hours"
+		},
+
+		{
+			"number": "10+",
+			"label": "Engineering Projects"
+		}
+	],
+
+	"services": [
+
+		{
+			"icon": "🏛️",
+			"title": "Architectural Scaled Models",
+			"description": "High-detail architectural and concept scale models for presentations, client demonstrations, urban planning, and real-estate visualization."
+		},
+
+		{
+			"icon": "⚙️",
+			"title": "FDM Printing",
+			"description": "Strong, reliable, and functional parts using advanced engineering-grade materials."
+		},
+
+		{
+			"icon": "💎",
+			"title": "SLA Printing",
+			"description": "High-detail resin printing for aesthetic models, miniatures, and precision parts."
+		},
+
+		{
+			"icon": "🧠",
+			"title": "Product Design",
+			"description": "CAD modeling and product development workflows from concept to manufacturable design."
+		},
+
+		{
+			"icon": "🚀",
+			"title": "Rapid Prototyping",
+			"description": "Fast iteration cycles for startups, engineering applications, and functional testing."
+		},
+
+		{
+			"icon": "🏭",
+			"title": "Low Volume Manufacturing",
+			"description": "Consistent short production runs with precision workflows and repeatable quality."
+		},
+
+		{
+			"icon": "🔩",
+			"title": "Functional Engineering Parts",
+			"description": "Durable mechanical components designed for industrial and engineering use."
+		}
+	],
+
+	"reviews": [
+		{
+			"name": "Dhirendra Singh",
+			"designation": "Retial Client",
+			"company": "",
+			"image": "images/reviews/review1.jpg",
+			"review": "I am incredibly impressed with this Su-57 Felon 3D-printed model. The level of detail in the digital camouflage is fantastic, and the colors are vibrant and sharp.\n\n​What stands out most is the build quality—it is very durable and feels much sturdier than your average 3D print. It looks amazing on my desk, and I really loved the product. Highly recommended for any aviation fan!"
+		},
+
+		{
+			"name": "Atindra Mondal",
+			"designation": "Retial Client",
+			"company": "",
+			"image": "images/reviews/review2.jpg",
+			"review": "Very impressive work with very innocent behaviour just like my own brother....Once again thank you dada for making this dream beyblade..."
+		},
+
+		{
+			"name": "Trisha Das",
+			"designation": "Retial Client",
+			"company": "",
+			"image": "images/reviews/review3.jpg",
+			"review": "I am very happy and impressed with this pikachu pokeball 3D print. Quality is really good, despite how it looks it is smooth to the touch and since it has been assembled from parts it gives the overall structure more stability and rigidness.\n\nThe experience is very good, happy to add one of my childhood favourite, and will add more in future.\n\nYou can also make your own collection of pokaballs."
+		},
+
+		{
+			"name": "Snehasish Nath",
+			"designation": "Retail Client",
+			"company": "",
+			"image": "images/reviews/review4.jpg",
+			"review": "Amazing service - got my model made so quick while keeping great quality!"
+		},
+
+		{
+			"name": "Bishwajit Kumar Poddar",
+			"designation": "Retail Client",
+			"company": "",
+			"image": "images/reviews/review5.jpg",
+			"review": "One of the best and most affordable 3D printing services in Kolkata!\n\nI got a custom adapter printed for my DIY air purifier setup using an Atomberg exhaust fan and a Mi air filter. Based on his suggestion, I went with PETG instead of regular PLA — and that turned out to be a brilliant choice.\n\nThe adapter has fallen multiple times while cleaning the floor, but it still looks and works perfectly. Super strong print quality, great material recommendation, and excellent overall experience.\n\nHighly recommended if you need durable, well-made 3D printed parts without spending a fortune."
+		},
+
+		{
+			"name": "Sam",
+			"designation": "Retail Client",
+			"company": "",
+			"image": "images/reviews/review6.jpg",
+			"review": "Layer8 Labs is my absolute go to place for 3D prints. Gaurav is always eager to help, and the quality of his prints is consistently exceptional. He is incredibly accommodating throughout the entire process.\n\nI remember having an issue with one of my 3D files a while back, and he went completely out of his way to fix the file himself to ensure it turned out perfectly. The prints are always great, the pricing is right on point, and it’s overall a complete pleasure working with him. I would highly recommend Layer8 Labs to anyone looking for a serious, high quality 3D printing service!"
+		}
+	],
+
+	"gallery": [
+		{
+			"image": "images/portfolio/project1.jpeg",
+			"category": "Functional Parts",
+			"title": "Engineering Prototype"
+		},
+
+		{
+			"image": "images/portfolio/project2.jfif",
+			"category": "SLA Printing",
+			"title": "Resin Miniatures"
+		},
+
+		{
+			"image": "images/portfolio/project3.webp",
+			"category": "Rapid Prototyping",
+			"title": "Mechanical Test Fit"
+		},
+
+		{
+			"image": "images/portfolio/project4.jfif",
+			"category": "Low Volumne Manufacturing",
+			"title": "Custom Product Housing"
+		},
+
+		{
+			"image": "images/portfolio/project5.jpeg",
+			"category": "Architectural Scaled Models",
+			"title": "Building Crossectional View"
+		},
+
+		{
+			"image": "images/portfolio/project6.jpg",
+			"category": "Product Design",
+			"title": "Custom Product Design"
+		},
+
+		{
+			"image": "images/portfolio/project7.jfif",
+			"category": "Retail Orders",
+			"title": "Custom /Client Provided Products"
+		}
+	],
+
+	"contact": {
+		"email": "info.thelayer8labs@gmail.com",
+
+		"phone": "+91 92333 32239",
+
+		"whatsapp": "919433332239",
+
+		"instagram": "https://instagram.com/thelayer8labs",
+
+		"linkedin": "https://linkedin.com/company/thelayer8labs"
+	},
+
+	"footer": {
+		"brandName": "The Layer8 Labs",
+
+		"description": "Precision 3D printing, rapid prototyping, product development, and low-volume manufacturing solutions for creators, startups, and engineering applications.",
+
+		"trustBadges": ["GST Registered Business", "MSME Registered Enterprise"],
+
+		"quickLinks": [
+			{
+				"name": "Home",
+				"url": "#home"
+			},
+
+			{
+				"name": "About",
+				"url": "#about"
+			},
+
+			{
+				"name": "Services",
+				"url": "#services"
+			},
+
+			{
+				"name": "Gallery",
+				"url": "#gallery"
+			},
+
+			{
+				"name": "Contact",
+				"url": "#contact"
+			}
+		],
+
+		"services": [
+			"FDM Printing",
+
+			"SLA Printing",
+
+			"Rapid Prototyping",
+
+			"Product Design",
+
+			"Low Volume Manufacturing",
+
+			"Architectural Scale Models"
+		],
+
+		"socials": [
+			{
+				"name": "Instagram",
+				"url": "https://instagram.com/thelayer8labs"
+			},
+
+			{
+				"name": "LinkedIn",
+				"url": "https://linkedin.com/company/thelayer8labs"
+			},
+
+			{
+				"name": "Email",
+				"url": "mailto:yourmail@example.com"
+			},
+
+			{
+				"name": "WhatsApp",
+				"url": "https://wa.me/919876543210"
+			}
+		],
+
+		"copyright": "© 2026 The Layer8 Labs. All Rights Reserved."
+	}
+}
