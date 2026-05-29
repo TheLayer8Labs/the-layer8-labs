@@ -1109,6 +1109,8 @@ section {
 	object-fit: cover;
 
 	transition: transform 0.5s ease;
+
+	cursor: pointer;
 }
 
 /* ========================================= */
@@ -2159,6 +2161,111 @@ section {
 	.review-avatar {
 		width: 50px;
 		height: 50px;
+	}
+}
+
+/* ========================================= */
+/* FLEET / EQUIPMENT */
+/* ========================================= */
+
+.fleet {
+	padding: 20px 0;
+}
+
+.fleet .section-heading {
+	margin-bottom: 12px;
+}
+
+.fleet .section-heading h2 {
+	margin: 0;
+}
+
+.fleet-category {
+	margin-bottom: 28px;
+}
+
+.fleet-category-title {
+	font-size: 1.2rem;
+	color: var(--primary-color);
+	margin-bottom: 10px;
+}
+
+.fleet-sub-label {
+	font-size: 1rem;
+	color: white;
+	margin-bottom: 8px;
+	margin-top: 1rem;
+}
+
+.fleet-items {
+	display: grid;
+	gap: 12px;
+}
+
+.fleet-item {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	background: rgba(255,255,255,0.02);
+	border: 1px solid rgba(255,255,255,0.03);
+	padding: 12px;
+	border-radius: 10px;
+}
+
+.fleet-item-left img {
+	width: 96px;
+	height: 72px;
+	object-fit: contain;
+}
+
+.fleet-item-right .fleet-item-name {
+	display: block;
+	font-weight: 700;
+	color: white;
+	margin-bottom: 6px;
+}
+
+.fleet-item-values {
+	list-style: disc;
+	margin: 0;
+	padding-left: 18px;
+	color: var(--text-secondary);
+}
+
+.fleet-item-desc {
+	color: var(--text-secondary);
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.fleet-item {
+		flex-direction: row;
+	}
+}
+
+@media (max-width: 576px) {
+	.fleet-item {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.fleet-item-left img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+/* Layout: place FDM and SLA side-by-side when space allows */
+#fleet-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 28px;
+	align-items: start;
+}
+
+@media (max-width: 992px) {
+	#fleet-container {
+		grid-template-columns: 1fr;
 	}
 }
 

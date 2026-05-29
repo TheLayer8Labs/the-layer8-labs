@@ -271,6 +271,67 @@
 		}
 	],
 
+	"fleet": [
+		{
+			"category": "Fused Deposition Modeling (FDM) Technology",
+			"subcategories": [
+				{
+					"label": "Printers",
+					"items": [
+						{ "name": "Bambu Lab H2S", "image": "images/printers/BambuLabH2S.png", "description": "High-speed FDM printer." },
+						{ "name": "Bambu Lab P1S", "image": "images/printers/BambuLabP1S.png", "description": "Reliable desktop FDM printer." }
+					]
+				},
+				{
+					"label": "Materials",
+					"items": [
+						{
+							"label": "Numakers",
+							"logo": "images/brands/numakers.png",
+							"values": ["PLA Pro", "PLA+", "PETG HS", "ASA", "PLA-CF", "PETG-CF"]
+						},
+						{
+							"label": "Bambu Lab",
+							"logo": "images/brands/bambulab.png",
+							"values": ["PLA", "PETG", "PA6"]
+						},
+						{
+							"label": "Sunlu",
+							"logo": "images/brands/sunlu.png",
+							"values": ["PLA", "PETG Matte"]
+						},
+						{
+							"label": "Elegoo",
+							"logo": "images/brands/elegoo.png",
+							"values": ["TPU", "PLA"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"category": "Stereolithography Apparatus (SLA) Technology",
+			"subcategories": [
+				{
+					"label": "Printers",
+					"items": [
+						{ "name": "Anycubic Photon Mono 4 Ultra", "image": "images/printers/AnycubicPhotonMono4Ultra.png", "description": "High-resolution resin printer." },
+						{ "name": "Anycubic Photon Mono M7 Pro", "image": "images/printers/AnycubicPhotonMonoM7Pro.png", "description": "Large-format resin printing." }
+					]
+				},
+				{
+					"label": "Materials",
+					"items": [
+						{ "label": "Anycubic", "logo": "images/brands/anycubic.png", "values": ["Standard", "Clear", "High Clear", "ABS Like"] },
+						{ "label": "Sunlu", "logo": "images/brands/sunlu.png", "values": ["Standard", "ABS Like"] },
+						{ "label": "Elegoo", "logo": "images/brands/elegoo.png", "values": [] },
+						{ "label": "Filamont", "logo": "images/brands/filamont.png", "values": [] }
+					]
+				}
+			]
+		}
+	],
+
 	"trustStrip": [
 		{
 			"title": "GST Registered",

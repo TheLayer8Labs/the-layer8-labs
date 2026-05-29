@@ -462,7 +462,77 @@ fetch("data/site-data.json")
 
                 `;
 			});
+
+            // Open gallery image in the shared image popup when clicked (detect clicks anywhere inside .gallery-item)
+            galleryContainer.addEventListener("click", (e) => {
+                const galleryItem = e.target.closest(".gallery-item");
+                if (!galleryItem) return;
+                const imgEl = galleryItem.querySelector("img");
+                if (!imgEl) return;
+                const src = imgEl.getAttribute("src");
+                const title = imgEl.getAttribute("alt") || (galleryItem.querySelector("h3") ? galleryItem.querySelector("h3").innerText : "Gallery image");
+                const popupImage = reviewPopup.querySelector("img");
+                const popupCaption = reviewPopup.querySelector(".popup-caption");
+                if (popupImage) popupImage.src = src;
+                if (popupImage) popupImage.alt = title;
+                if (popupCaption) popupCaption.textContent = title;
+                reviewPopup.hidden = false;
+            });
 		}
+
+        // =========================================
+        // FLEET / EQUIPMENT
+        // =========================================
+
+        const fleetContainer = document.getElementById("fleet-container");
+
+        if (fleetContainer && data.fleet && Array.isArray(data.fleet)) {
+            fleetContainer.innerHTML = data.fleet
+                .map((cat) => `
+                    <section class="fleet-category">
+                        <h3 class="fleet-category-title">${cat.category}</h3>
+                        <div class="fleet-subcategories">
+                            ${cat.subcategories
+                                .map(
+                                    (sub) => `
+                                        <div class="fleet-subcategory">
+                                            <h4 class="fleet-sub-label">${sub.label}</h4>
+                                            <div class="fleet-items">
+                                                ${(sub.items || [])
+                                                    .map((it) => {
+                                                        if (it.values && Array.isArray(it.values)) {
+                                                            return `
+                                                            <div class="fleet-item">
+                                                                    <div class="fleet-item-left">${it.logo ? `<img src="${it.logo}" alt="${it.label} logo">` : ""}</div>
+                                                                <div class="fleet-item-right">
+                                                                    <strong class="fleet-item-name">${it.label}</strong>
+                                                                    <ul class="fleet-item-values">
+                                                                        ${it.values.map((v) => `<li>${v}</li>`).join("")}
+                                                                    </ul>
+                                                                </div>
+                                                            </div>`;
+                                                        } else {
+                                                        return `
+                                                        <div class="fleet-item">
+                                                            <div class="fleet-item-left">
+                                                                ${it.image ? `<img src="${it.image}" alt="${it.name}">` : ""}
+                                                            </div>
+                                                            <div class="fleet-item-right">
+                                                                <strong class="fleet-item-name">${it.name}</strong>
+                                                                ${it.description ? `<p class="fleet-item-desc">${it.description}</p>` : ""}
+                                                            </div>
+                                                            </div>`;
+                                                        }
+                                                    }).join("")}
+                                            </div>
+                                        </div>
+                                    `)
+                            .join("")}
+                        </div>
+                    </section>
+                `)
+                .join("");
+        }
 		// =========================================
 		// CONTACT INFO
 		// =========================================
