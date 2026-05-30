@@ -1899,8 +1899,512 @@ section {
 }
 
 /* ========================================= */
+/* INDUSTRIES */
+/* ========================================= */
+
+.industries {
+	padding: 100px 0;
+
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.01),
+		rgba(255, 255, 255, 0.03)
+	);
+}
+
+.industries-grid {
+	display: grid;
+
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+	gap: 24px;
+
+	margin-top: 60px;
+}
+
+.industry-card {
+	background: rgba(255, 255, 255, 0.03);
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	border-radius: 20px;
+
+	padding: 28px;
+
+	transition: 0.3s ease;
+}
+
+.industry-card:hover {
+	transform: translateY(-6px);
+
+	border-color: rgba(0, 255, 180, 0.25);
+}
+
+.industry-icon {
+	font-size: 2rem;
+
+	margin-bottom: 18px;
+}
+
+.industry-card h3 {
+	margin-bottom: 12px;
+}
+
+.industry-card p {
+	color: var(--text-secondary);
+
+	line-height: 1.7;
+}
+
+/* ========================================= */
+/* PROCESS TIMELINE */
+/* ========================================= */
+
+.process-section {
+	padding: 120px 0;
+
+	position: relative;
+}
+
+.process-grid {
+	position: relative;
+
+	display: grid;
+
+	grid-template-columns: repeat(5, 1fr);
+
+	gap: 20px;
+
+	margin-top: 70px;
+}
+
+/* CONNECTING LINE */
+
+.process-grid::before {
+	content: "";
+
+	position: absolute;
+
+	top: 42px;
+
+	left: 10%;
+
+	width: 80%;
+
+	height: 2px;
+
+	background: linear-gradient(
+		90deg,
+		rgba(0, 255, 180, 0.2),
+		rgba(0, 255, 180, 0.8),
+		rgba(0, 255, 180, 0.2)
+	);
+
+	z-index: 1;
+}
+
+.process-card {
+	position: relative;
+
+	text-align: center;
+
+	padding-top: 20px;
+
+	z-index: 2;
+}
+
+.process-number {
+	width: 84px;
+
+	height: 84px;
+
+	margin: 0 auto 25px;
+
+	border-radius: 50%;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	font-size: 1.3rem;
+
+	font-weight: 700;
+
+	color: var(--primary-color);
+
+	background: #151515;
+
+	border: 2px solid rgba(0, 255, 180, 0.5);
+
+	box-shadow: 0 0 20px rgba(0, 255, 180, 0.15);
+
+	transition: 0.3s ease;
+}
+
+.process-card:hover .process-number {
+	transform: scale(1.08);
+
+	box-shadow: 0 0 30px rgba(0, 255, 180, 0.35);
+}
+
+.process-card h3 {
+	margin-bottom: 14px;
+
+	font-size: 1.05rem;
+}
+
+.process-card p {
+	color: var(--text-secondary);
+
+	line-height: 1.7;
+
+	font-size: 0.95rem;
+}
+
+/* ========================================= */
+/* MOBILE TIMELINE */
+/* ========================================= */
+
+@media (max-width: 992px) {
+	.process-grid {
+		grid-template-columns: 1fr;
+
+		gap: 50px;
+	}
+
+	.process-grid::before {
+		width: 2px;
+
+		height: calc(100% - 80px);
+
+		left: 42px;
+
+		top: 42px;
+	}
+
+	.process-card {
+		text-align: left;
+
+		padding-left: 110px;
+
+		min-height: 90px;
+	}
+
+	.process-number {
+		position: absolute;
+
+		left: 0;
+
+		top: 0;
+
+		margin: 0;
+	}
+}
+
+/* ========================================= */
+/* CASE STUDIES */
+/* ========================================= */
+
+.case-studies {
+	padding: 120px 0;
+}
+
+.case-studies-grid {
+	display: grid;
+
+	gap: 40px;
+
+	margin-top: 60px;
+}
+
+.case-study-card {
+	display: grid;
+
+	grid-template-columns: 400px 1fr;
+
+	gap: 40px;
+
+	background: rgba(255, 255, 255, 0.03);
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	border-radius: 24px;
+
+	overflow: hidden;
+}
+
+.case-study-image,
+.case-carousel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.case-study-image img {
+	max-width: 100%;
+
+	max-height: 100%;
+
+	width: auto;
+
+	height: auto;
+
+	object-fit: contain;
+
+	display: block;
+}
+
+.case-study-content {
+	padding: 35px;
+}
+
+.case-category {
+	display: inline-block;
+
+	margin-bottom: 15px;
+
+	padding: 6px 14px;
+
+	border-radius: 999px;
+
+	background: rgba(0, 255, 180, 0.12);
+
+	color: var(--primary-color);
+
+	font-size: 0.85rem;
+}
+
+.case-meta {
+	display: flex;
+
+	gap: 25px;
+
+	margin: 18px 0 25px;
+
+	flex-wrap: wrap;
+
+	color: var(--text-secondary);
+}
+
+.case-block {
+	margin-top: 18px;
+}
+
+.case-block h4 {
+	margin-bottom: 8px;
+
+	color: var(--primary-color);
+}
+
+.case-block p {
+	line-height: 1.8;
+
+	color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+	.case-study-card {
+		grid-template-columns: 1fr;
+	}
+
+	.case-study-card,
+	.case-study-image,
+	.case-carousel {
+		width: 100%;
+	}
+
+	.case-study-content {
+		padding: 24px;
+	}
+}
+
+/* ========================================= */
+/* CONFIDENTIALITY */
+/* ========================================= */
+
+.confidentiality {
+	padding: 100px 0;
+}
+
+.confidentiality-card {
+	max-width: 900px;
+
+	margin: auto;
+
+	text-align: center;
+
+	padding: 50px;
+
+	border-radius: 24px;
+
+	background: rgba(255, 255, 255, 0.03);
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.confidentiality-icon {
+	font-size: 3rem;
+
+	margin-bottom: 20px;
+}
+
+.confidentiality-card h2 {
+	margin-bottom: 20px;
+}
+
+.confidentiality-card p {
+	color: var(--text-secondary);
+
+	margin-bottom: 30px;
+
+	line-height: 1.8;
+}
+
+.confidentiality-card ul {
+	list-style: none;
+
+	display: grid;
+
+	gap: 12px;
+}
+
+.confidentiality-card li {
+	color: var(--text-secondary);
+}
+
+/* ========================================= */
 /* REVIEWS SECTION */
 /* ========================================= */
+
+/* ========================================= */
+/* GOOGLE REVIEW SUMMARY */
+/* ========================================= */
+
+.google-review-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 50px;
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.03);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.google-review-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+.google-icon {
+
+    width: 28px !important;
+
+    height: 28px !important;
+
+    min-width: 28px;
+
+    max-width: 28px;
+
+    object-fit: contain;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+.google-rating {
+
+    color: #fbbc04;
+
+    font-size: 1.2rem;
+
+    letter-spacing: 2px;
+}
+
+.google-rating-text {
+
+    color: var(--text-secondary);
+
+    margin-top: 6px;
+}
+
+.google-review-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.review-source {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+    font-size: 0.8rem;
+
+    color: var(--text-secondary);
+}
+
+.review-source-icon {
+
+    width: 16px !important;
+
+    height: 16px !important;
+
+    min-width: 16px;
+
+    max-width: 16px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    .google-review-card {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .google-review-actions {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+}
 
 .reviews {
 	overflow: hidden;
@@ -2004,7 +2508,11 @@ section {
 
 	border-radius: 50%;
 
-	background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,255,255,0.08));
+	background: linear-gradient(
+		135deg,
+		rgba(255, 107, 0, 0.2),
+		rgba(255, 255, 255, 0.08)
+	);
 	border: 2px solid rgba(255, 107, 0, 0.2);
 
 	font-size: 0.95rem;
@@ -2206,8 +2714,8 @@ section {
 	display: flex;
 	gap: 16px;
 	align-items: center;
-	background: rgba(255,255,255,0.02);
-	border: 1px solid rgba(255,255,255,0.03);
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.03);
 	padding: 12px;
 	border-radius: 10px;
 }
@@ -2373,14 +2881,52 @@ section {
 }
 
 /* ========================================= */
+/* COMPANY PROFILE */
+/* ========================================= */
+
+.company-profile {
+	padding: 100px 0;
+}
+
+.profile-download-card {
+	text-align: center;
+
+	max-width: 800px;
+
+	margin: auto;
+
+	padding: 50px;
+
+	border-radius: 24px;
+
+	background: rgba(255, 255, 255, 0.03);
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-download-card h2 {
+	margin-bottom: 15px;
+}
+
+.profile-download-card p {
+	margin-bottom: 30px;
+
+	color: var(--text-secondary);
+}
+
+/* ========================================= */
 /* FAQ */
 /* ========================================= */
 
 .faq {
 	padding: 60px 0;
-	background: linear-gradient(180deg, rgba(15,15,18,0.98) 0%, rgba(11,11,13,1) 100%);
-	border-top: 1px solid rgba(255,255,255,0.03);
-	border-bottom: 1px solid rgba(255,255,255,0.03);
+	background: linear-gradient(
+		180deg,
+		rgba(15, 15, 18, 0.98) 0%,
+		rgba(11, 11, 13, 1) 100%
+	);
+	border-top: 1px solid rgba(255, 255, 255, 0.03);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .faq-list {
@@ -2392,8 +2938,8 @@ section {
 }
 
 .faq-item {
-	background: rgba(255,255,255,0.02);
-	border: 1px solid rgba(255,255,255,0.04);
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.04);
 	border-radius: 12px;
 	overflow: hidden;
 }
@@ -2457,8 +3003,12 @@ section {
 
 .trust-strip {
 	padding: 18px 0;
-	background: linear-gradient(180deg, rgba(245,245,245,0.02) 0%, rgba(245,245,245,0.01) 100%);
-	border-top: 1px solid rgba(255,255,255,0.03);
+	background: linear-gradient(
+		180deg,
+		rgba(245, 245, 245, 0.02) 0%,
+		rgba(245, 245, 245, 0.01) 100%
+	);
+	border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .trust-strip .trust-strip-inner {
@@ -2474,8 +3024,8 @@ section {
 	align-items: center;
 	gap: 10px;
 	padding: 10px 14px;
-	background: rgba(255,255,255,0.02);
-	border: 1px solid rgba(255,255,255,0.03);
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.03);
 	border-radius: 10px;
 }
 
@@ -2511,4 +3061,66 @@ section {
 		width: 26px;
 		height: 26px;
 	}
+}
+
+.case-modal {
+	position: fixed;
+
+	inset: 0;
+
+	background: rgba(0, 0, 0, 0.95);
+
+	display: none;
+
+	justify-content: center;
+
+	align-items: center;
+
+	z-index: 99999;
+}
+
+.case-modal.active {
+	display: flex;
+}
+
+.case-modal img {
+	max-width: 90vw;
+
+	max-height: 85vh;
+
+	border-radius: 12px;
+}
+
+.case-modal-close,
+.case-modal-prev,
+.case-modal-next {
+	position: absolute;
+
+	background: none;
+
+	border: none;
+
+	color: white;
+
+	cursor: pointer;
+
+	font-size: 2rem;
+}
+
+.case-modal-close {
+	top: 20px;
+
+	right: 20px;
+}
+
+.case-modal-prev {
+	left: 20px;
+}
+
+.case-modal-next {
+	right: 20px;
+}
+
+.case-carousel-image {
+	transition: opacity 0.5s ease;
 }

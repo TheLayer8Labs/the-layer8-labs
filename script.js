@@ -127,8 +127,8 @@ fetch("data/site-data.json")
             <div class="hero-stats">
 
                 ${data.hero.stats
-                        .map(
-                            (stat) => `
+									.map(
+										(stat) => `
                     <div class="hero-stat-card">
                         <div class="stat-card">
 
@@ -143,8 +143,8 @@ fetch("data/site-data.json")
                         </div>
                     </div>
                 `,
-                        )
-                        .join("")}
+									)
+									.join("")}
 
             </div>
 
@@ -236,8 +236,8 @@ fetch("data/site-data.json")
                     <div class="about-features">
 
                         ${data.about.features
-                                        .map(
-                                            (feature) => `
+													.map(
+														(feature) => `
 
                             <div class="about-feature">
 
@@ -248,8 +248,8 @@ fetch("data/site-data.json")
                             </div>
 
                         `,
-                                        )
-                                        .join("")}
+													)
+													.join("")}
 
                     </div>
 
@@ -257,8 +257,8 @@ fetch("data/site-data.json")
                     <div class="about-stats">
 
                         ${data.about.stats
-                                        .map(
-                                            (stat) => `
+													.map(
+														(stat) => `
 
                             <div class="about-stat-card">
 
@@ -273,8 +273,8 @@ fetch("data/site-data.json")
                             </div>
 
                         `,
-                                        )
-                                        .join("")}
+													)
+													.join("")}
 
                     </div>
 
@@ -314,15 +314,450 @@ fetch("data/site-data.json")
 		}
 
 		// =========================================
+		// INDUSTRIES
+		// =========================================
+
+		const industriesContainer = document.getElementById("industries-container");
+
+		if (industriesContainer) {
+			data.industries.forEach((industry) => {
+				industriesContainer.innerHTML += `
+
+                    <div class="industry-card">
+
+                        <div class="industry-icon">
+
+                            ${industry.icon}
+
+                        </div>
+
+                        <h3>
+
+                            ${industry.title}
+
+                        </h3>
+
+                        <p>
+
+                            ${industry.description}
+
+                        </p>
+
+                    </div>
+
+                `;
+			});
+		}
+
+		// =========================================
+		// PROCESS
+		// =========================================
+
+		const processContainer = document.getElementById("process-container");
+
+		if (processContainer) {
+			data.process.forEach((item) => {
+				processContainer.innerHTML += `
+
+                    <div class="process-card">
+
+                        <div class="process-number">
+
+                            ${item.icon}
+
+                        </div>
+
+                        <h3>
+
+                            ${item.title}
+
+                        </h3>
+
+                        <p>
+
+                            ${item.description}
+
+                        </p>
+
+                    </div>
+
+                `;
+			});
+		}
+
+		// =========================================
+		// FLEET / EQUIPMENT
+		// =========================================
+
+		const fleetContainer = document.getElementById("fleet-container");
+
+		if (fleetContainer && data.fleet && Array.isArray(data.fleet)) {
+			fleetContainer.innerHTML = data.fleet
+				.map(
+					(cat) => `
+                    <section class="fleet-category">
+                        <h3 class="fleet-category-title">${cat.category}</h3>
+                        <div class="fleet-subcategories">
+                            ${cat.subcategories
+															.map(
+																(sub) => `
+                                        <div class="fleet-subcategory">
+                                            <h4 class="fleet-sub-label">${sub.label}</h4>
+                                            <div class="fleet-items">
+                                                ${(sub.items || [])
+																									.map((it) => {
+																										if (
+																											it.values &&
+																											Array.isArray(it.values)
+																										) {
+																											return `
+                                                            <div class="fleet-item">
+                                                                    <div class="fleet-item-left">${it.logo ? `<img src="${it.logo}" alt="${it.label} logo">` : ""}</div>
+                                                                <div class="fleet-item-right">
+                                                                    <strong class="fleet-item-name">${it.label}</strong>
+                                                                    <ul class="fleet-item-values">
+                                                                        ${it.values.map((v) => `<li>${v}</li>`).join("")}
+                                                                    </ul>
+                                                                </div>
+                                                            </div>`;
+																										} else {
+																											return `
+                                                        <div class="fleet-item">
+                                                            <div class="fleet-item-left">
+                                                                ${it.image ? `<img src="${it.image}" alt="${it.name}">` : ""}
+                                                            </div>
+                                                            <div class="fleet-item-right">
+                                                                <strong class="fleet-item-name">${it.name}</strong>
+                                                                ${it.description ? `<p class="fleet-item-desc">${it.description}</p>` : ""}
+                                                            </div>
+                                                            </div>`;
+																										}
+																									})
+																									.join("")}
+                                            </div>
+                                        </div>
+                                    `,
+															)
+															.join("")}
+                        </div>
+                    </section>
+                `,
+				)
+				.join("");
+		}
+
+		// =========================================
+		// GALLERY
+		// =========================================
+
+		const galleryContainer = document.getElementById("gallery-container");
+
+		if (galleryContainer) {
+			data.gallery.forEach((project) => {
+				galleryContainer.innerHTML += `
+
+                    <div class="gallery-item">
+
+                        <img src="${project.image}" alt="${project.title}">
+
+                        <div class="gallery-overlay">
+
+                            <span class="gallery-category">
+                                ${project.category}
+                            </span>
+
+                            <h3>
+                                ${project.title}
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                `;
+			});
+
+			// Open gallery image in the shared image popup when clicked (detect clicks anywhere inside .gallery-item)
+			galleryContainer.addEventListener("click", (e) => {
+				const galleryItem = e.target.closest(".gallery-item");
+				if (!galleryItem) return;
+				const imgEl = galleryItem.querySelector("img");
+				if (!imgEl) return;
+				const src = imgEl.getAttribute("src");
+				const title =
+					imgEl.getAttribute("alt") ||
+					(galleryItem.querySelector("h3")
+						? galleryItem.querySelector("h3").innerText
+						: "Gallery image");
+				const popupImage = reviewPopup.querySelector("img");
+				const popupCaption = reviewPopup.querySelector(".popup-caption");
+				if (popupImage) popupImage.src = src;
+				if (popupImage) popupImage.alt = title;
+				if (popupCaption) popupCaption.textContent = title;
+				reviewPopup.hidden = false;
+			});
+		}
+
+		// =========================================
+		// CASE STUDIES
+		// =========================================
+
+		const caseStudiesContainer = document.getElementById(
+			"case-studies-container",
+		);
+
+		if (caseStudiesContainer && data.caseStudies) {
+			data.caseStudies.forEach((project) => {
+				caseStudiesContainer.innerHTML += `
+
+            <div class="case-study-card">
+
+                <div class="case-study-image">
+
+                    <div
+                        class="case-carousel"
+                        data-images='${JSON.stringify(project.images)}'
+                    >
+
+                        <img
+                            src="${project.images[0]}"
+                            alt="${project.title}"
+                            class="case-carousel-image"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="case-study-content">
+
+                    <span class="case-category">
+
+                        ${project.category}
+
+                    </span>
+
+                    <h3>
+
+                        ${project.title}
+
+                    </h3>
+
+                    <div class="case-meta">
+
+                        <span>
+
+                            Material:
+                            ${project.material}
+
+                        </span>
+
+                        <span>
+
+                            Quantity:
+                            ${project.quantity}
+
+                        </span>
+
+                    </div>
+
+                    <div class="case-block">
+
+                        <h4>Challenge</h4>
+
+                        <p>
+                            ${project.challenge}
+                        </p>
+
+                    </div>
+
+                    <div class="case-block">
+
+                        <h4>Solution</h4>
+
+                        <p>
+                            ${project.solution}
+                        </p>
+
+                    </div>
+
+                    <div class="case-block">
+
+                        <h4>Outcome</h4>
+
+                        <p>
+                            ${project.outcome}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+			});
+
+			const caseCarousels = document.querySelectorAll(".case-carousel");
+			caseCarousels.forEach((carousel) => {
+				const images = JSON.parse(carousel.dataset.images);
+
+				if (!images || !images.length) return;
+
+				let current = 0;
+				const image = carousel.querySelector("img");
+				if (!image) return;
+
+				setInterval(() => {
+					current = (current + 1) % images.length;
+
+					image.style.opacity = "0";
+
+					setTimeout(() => {
+						image.src = images[current];
+						image.onload = () => {
+							image.style.opacity = "1";
+						};
+					}, 500);
+				}, 3000);
+			});
+		}
+
+		// =========================================
+		// CONFIDENTIALITY
+		// =========================================
+
+		const confidentialityContainer = document.getElementById(
+			"confidentiality-container",
+		);
+
+		if (confidentialityContainer && data.confidentiality) {
+			confidentialityContainer.innerHTML = `
+
+        <div class="confidentiality-card">
+
+            <div
+                class="confidentiality-icon"
+            >
+                🔒
+            </div>
+
+            <h2>
+
+                ${data.confidentiality.title}
+
+            </h2>
+
+            <p>
+
+                ${data.confidentiality.description}
+
+            </p>
+
+            <ul>
+
+                ${data.confidentiality.points
+									.map(
+										(point) => `
+
+                        <li>
+
+                            ✓ ${point}
+
+                        </li>
+
+                    `,
+									)
+									.join("")}
+
+            </ul>
+
+        </div>
+
+    `;
+		}
+
+        // =========================================
+        // GOOGLE BUSINESS SUMMARY
+        // =========================================
+
+        const googleReviewSummary =
+            document.getElementById(
+                "google-review-summary"
+            );
+
+        if (
+            googleReviewSummary &&
+            data.googleBusiness
+        ) {
+
+            googleReviewSummary.innerHTML = `
+
+                <div class="google-review-card">
+
+                    <div class="google-review-left">
+
+                        <img
+                            src="images/icons/google.svg"
+                            alt="Google"
+                            class="google-icon"
+                        >
+
+                        <div>
+
+                            <div class="google-rating">
+
+                                ★★★★★
+                            </div>
+
+                            <div class="google-rating-text">
+
+                                ${data.googleBusiness.rating}
+                                Rating •
+                                ${data.googleBusiness.reviewCount}
+                                Reviews
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="google-review-actions">
+
+                        <a
+                            href="${data.googleBusiness.profileUrl}"
+                            target="_blank"
+                            class="btn btn-outline"
+                        >
+                            View Profile
+                        </a>
+
+                        <a
+                            href="${data.googleBusiness.reviewUrl}"
+                            target="_blank"
+                            class="btn btn-primary"
+                        >
+                            Leave a review
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
+        }
+
+		// =========================================
 		// REVIEWS
 		// =========================================
 
 		const reviewsContainer = document.getElementById("reviews-container");
 
 		const reviewPopup = document.createElement("div");
-	reviewPopup.className = "review-image-popup";
-	reviewPopup.hidden = true;
-	reviewPopup.innerHTML = `
+		reviewPopup.className = "review-image-popup";
+		reviewPopup.hidden = true;
+		reviewPopup.innerHTML = `
 		<div class="review-image-popup-backdrop"></div>
 		<div class="review-image-popup-content">
 			<button type="button" class="popup-close" aria-label="Close image">×</button>
@@ -330,27 +765,28 @@ fetch("data/site-data.json")
 			<div class="popup-caption"></div>
 		</div>
 	`;
-	document.body.appendChild(reviewPopup);
+		document.body.appendChild(reviewPopup);
 
-	reviewPopup.addEventListener("click", (event) => {
-		if (
-			event.target.matches(".popup-close") ||
-			event.target.matches(".review-image-popup-backdrop")
-		) {
-			reviewPopup.hidden = true;
-			reviewPopup.querySelector("img").src = "";
-		}
-	});
+		reviewPopup.addEventListener("click", (event) => {
+			if (
+				event.target.matches(".popup-close") ||
+				event.target.matches(".review-image-popup-backdrop")
+			) {
+				reviewPopup.hidden = true;
+				reviewPopup.querySelector("img").src = "";
+			}
+		});
 
 		if (reviewsContainer) {
 			const duplicatedReviews = [...data.reviews, ...data.reviews];
 
 			duplicatedReviews.forEach((review) => {
-				const reviewImages = Array.isArray(review.images) && review.images.length
-					? review.images.slice(0, 3)
-					: review.image
-					? [review.image]
-					: [];
+				const reviewImages =
+					Array.isArray(review.images) && review.images.length
+						? review.images.slice(0, 3)
+						: review.image
+							? [review.image]
+							: [];
 				const hasImages = reviewImages.length > 0;
 
 				reviewsContainer.innerHTML += `
@@ -375,11 +811,30 @@ fetch("data/site-data.json")
                             </div>
 
                         </div>
+                        ${
+													review.source === "Google"
+                                                                            ? `
+                            <div class="review-source">
 
-                        ${hasImages ? `<div class="review-media">
+                                <img
+                                    src="images/icons/google.svg"
+                                    alt="Google"
+                                    class="review-source-icon"
+                                >
+
+                                <span>Google Review</span>
+
+                            </div><br>
+                            `
+                                                                            : ""
+                                                                    }
+
+                        ${
+													hasImages
+														? `<div class="review-media">
                             ${reviewImages
-                                .map(
-                                    (src, idx) => `
+															.map(
+																(src, idx) => `
                                 <button
                                     type="button"
                                     class="review-thumbnail"
@@ -389,9 +844,11 @@ fetch("data/site-data.json")
                                 >
                                     <img src="${src}" alt="${review.name} image ${idx + 1}" loading="lazy">
                                 </button>`,
-                                )
-                                .join("")}
-                        </div>` : ""}
+															)
+															.join("")}
+                        </div>`
+														: ""
+												}
 
                         <div class="review-stars">
                             ★★★★★
@@ -433,106 +890,45 @@ fetch("data/site-data.json")
 		}
 
 		// =========================================
-		// GALLERY
+		// COMPANY PROFILE
 		// =========================================
 
-		const galleryContainer = document.getElementById("gallery-container");
+		const companyProfileContainer = document.getElementById(
+			"company-profile-container",
+		);
 
-		if (galleryContainer) {
-			data.gallery.forEach((project) => {
-				galleryContainer.innerHTML += `
+		if (companyProfileContainer && data.companyProfile) {
+			companyProfileContainer.innerHTML = `
 
-                    <div class="gallery-item">
+        <div class="profile-download-card">
 
-                        <img src="${project.image}" alt="${project.title}">
+            <h2>
 
-                        <div class="gallery-overlay">
+                ${data.companyProfile.title}
 
-                            <span class="gallery-category">
-                                ${project.category}
-                            </span>
+            </h2>
 
-                            <h3>
-                                ${project.title}
-                            </h3>
+            <p>
 
-                        </div>
+                ${data.companyProfile.description}
 
-                    </div>
+            </p>
 
-                `;
-			});
+            <a
+                href="${data.companyProfile.file}"
+                class="btn btn-primary"
+                download
+            >
 
-            // Open gallery image in the shared image popup when clicked (detect clicks anywhere inside .gallery-item)
-            galleryContainer.addEventListener("click", (e) => {
-                const galleryItem = e.target.closest(".gallery-item");
-                if (!galleryItem) return;
-                const imgEl = galleryItem.querySelector("img");
-                if (!imgEl) return;
-                const src = imgEl.getAttribute("src");
-                const title = imgEl.getAttribute("alt") || (galleryItem.querySelector("h3") ? galleryItem.querySelector("h3").innerText : "Gallery image");
-                const popupImage = reviewPopup.querySelector("img");
-                const popupCaption = reviewPopup.querySelector(".popup-caption");
-                if (popupImage) popupImage.src = src;
-                if (popupImage) popupImage.alt = title;
-                if (popupCaption) popupCaption.textContent = title;
-                reviewPopup.hidden = false;
-            });
+                Download Company Profile
+
+            </a>
+
+        </div>
+
+    `;
 		}
 
-        // =========================================
-        // FLEET / EQUIPMENT
-        // =========================================
-
-        const fleetContainer = document.getElementById("fleet-container");
-
-        if (fleetContainer && data.fleet && Array.isArray(data.fleet)) {
-            fleetContainer.innerHTML = data.fleet
-                .map((cat) => `
-                    <section class="fleet-category">
-                        <h3 class="fleet-category-title">${cat.category}</h3>
-                        <div class="fleet-subcategories">
-                            ${cat.subcategories
-                                .map(
-                                    (sub) => `
-                                        <div class="fleet-subcategory">
-                                            <h4 class="fleet-sub-label">${sub.label}</h4>
-                                            <div class="fleet-items">
-                                                ${(sub.items || [])
-                                                    .map((it) => {
-                                                        if (it.values && Array.isArray(it.values)) {
-                                                            return `
-                                                            <div class="fleet-item">
-                                                                    <div class="fleet-item-left">${it.logo ? `<img src="${it.logo}" alt="${it.label} logo">` : ""}</div>
-                                                                <div class="fleet-item-right">
-                                                                    <strong class="fleet-item-name">${it.label}</strong>
-                                                                    <ul class="fleet-item-values">
-                                                                        ${it.values.map((v) => `<li>${v}</li>`).join("")}
-                                                                    </ul>
-                                                                </div>
-                                                            </div>`;
-                                                        } else {
-                                                        return `
-                                                        <div class="fleet-item">
-                                                            <div class="fleet-item-left">
-                                                                ${it.image ? `<img src="${it.image}" alt="${it.name}">` : ""}
-                                                            </div>
-                                                            <div class="fleet-item-right">
-                                                                <strong class="fleet-item-name">${it.name}</strong>
-                                                                ${it.description ? `<p class="fleet-item-desc">${it.description}</p>` : ""}
-                                                            </div>
-                                                            </div>`;
-                                                        }
-                                                    }).join("")}
-                                            </div>
-                                        </div>
-                                    `)
-                            .join("")}
-                        </div>
-                    </section>
-                `)
-                .join("");
-        }
 		// =========================================
 		// CONTACT INFO
 		// =========================================
@@ -696,38 +1092,44 @@ fetch("data/site-data.json")
 			footerCopyright.innerText = data.footer.copyright;
 		}
 
-        // =========================================
-        // TRUST STRIP
-        // =========================================
+		// =========================================
+		// TRUST STRIP
+		// =========================================
 
-        const trustStripContainer = document.getElementById("trust-strip-container");
+		const trustStripContainer = document.getElementById(
+			"trust-strip-container",
+		);
 
-        if (trustStripContainer && data.trustStrip && Array.isArray(data.trustStrip)) {
-            trustStripContainer.innerHTML = `
+		if (
+			trustStripContainer &&
+			data.trustStrip &&
+			Array.isArray(data.trustStrip)
+		) {
+			trustStripContainer.innerHTML = `
                 <div class="trust-strip-inner">
                     ${data.trustStrip
-                        .map(
-                            (item) => `
+											.map(
+												(item) => `
                                 <div class="trust-item">
                                     ${item.logo ? `<img src="${item.logo}" alt="${item.title}" loading="lazy">` : ""}
                                     <span class="trust-title">${item.title}</span>
                                 </div>
-                            `
-                        )
-                        .join("")}
+                            `,
+											)
+											.join("")}
                 </div>
             `;
-        }
+		}
 
-        // =========================================
-        // FAQ
-        // =========================================
+		// =========================================
+		// FAQ
+		// =========================================
 
-        const faqContainer = document.getElementById("faq-container");
+		const faqContainer = document.getElementById("faq-container");
 
-        if (faqContainer && data.faq && Array.isArray(data.faq)) {
-            data.faq.forEach((item, idx) => {
-                faqContainer.innerHTML += `
+		if (faqContainer && data.faq && Array.isArray(data.faq)) {
+			data.faq.forEach((item, idx) => {
+				faqContainer.innerHTML += `
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-${idx}">
                             <span class="question-text">${item.question}</span>
@@ -739,19 +1141,21 @@ fetch("data/site-data.json")
                         </div>
                     </div>
                 `;
-            });
+			});
 
-            faqContainer.addEventListener("click", (e) => {
-                const btn = e.target.closest(".faq-question");
-                if (!btn) return;
-                const panel = document.getElementById(btn.getAttribute("aria-controls"));
-                const expanded = btn.getAttribute("aria-expanded") === "true";
-                btn.setAttribute("aria-expanded", String(!expanded));
-                if (panel) panel.hidden = expanded;
-                const toggle = btn.querySelector(".faq-toggle");
-                if (toggle) toggle.innerText = expanded ? "+" : "−";
-            });
-        }
+			faqContainer.addEventListener("click", (e) => {
+				const btn = e.target.closest(".faq-question");
+				if (!btn) return;
+				const panel = document.getElementById(
+					btn.getAttribute("aria-controls"),
+				);
+				const expanded = btn.getAttribute("aria-expanded") === "true";
+				btn.setAttribute("aria-expanded", String(!expanded));
+				if (panel) panel.hidden = expanded;
+				const toggle = btn.querySelector(".faq-toggle");
+				if (toggle) toggle.innerText = expanded ? "+" : "−";
+			});
+		}
 	})
 
 	.catch((error) => {
@@ -778,4 +1182,50 @@ document.addEventListener("click", (event) => {
 			button.innerText = "Read More";
 		}
 	}
+});
+
+let modalImages = [];
+
+let modalIndex = 0;
+
+const modal = document.getElementById("caseModal");
+
+const modalImage = document.getElementById("caseModalImage");
+
+document.addEventListener("click", (e) => {
+	if (e.target.classList.contains("case-carousel-image")) {
+		const carousel = e.target.closest(".case-carousel");
+
+		modalImages = JSON.parse(carousel.dataset.images);
+
+		modalIndex = 0;
+
+		modalImage.src = modalImages[0];
+
+		modal.classList.add("active");
+	}
+});
+
+document.getElementById("caseModalClose").addEventListener("click", () => {
+	modal.classList.remove("active");
+});
+
+document.getElementById("caseModalPrev").addEventListener("click", () => {
+	modalIndex--;
+
+	if (modalIndex < 0) {
+		modalIndex = modalImages.length - 1;
+	}
+
+	modalImage.src = modalImages[modalIndex];
+});
+
+document.getElementById("caseModalNext").addEventListener("click", () => {
+	modalIndex++;
+
+	if (modalIndex >= modalImages.length) {
+		modalIndex = 0;
+	}
+
+	modalImage.src = modalImages[modalIndex];
 });

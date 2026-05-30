@@ -46,7 +46,7 @@
 		"secondaryImage": "images/about/about-detail.jpg",
 
 		"features": [
-            "Architectural Scaled Models",
+			"Architectural Scaled Models",
 			"Precision FDM & SLA Printing",
 			"Functional Engineering Parts",
 			"Rapid Prototype Development",
@@ -89,7 +89,6 @@
 	],
 
 	"services": [
-
 		{
 			"icon": "🏛️",
 			"title": "Architectural Scaled Models",
@@ -132,67 +131,90 @@
 			"description": "Durable mechanical components designed for industrial and engineering use."
 		}
 	],
-
-	"reviews": [
+	"industries": [
 		{
-			"name": "Dhirendra Singh",
-			"designation": "Retail Client",
-			"company": "",
-			"images": [
-				"images/reviews/dhirendra/image1.jpg",
-				"images/reviews/dhirendra/image2.jpg"
-			],
-			"review": "I am incredibly impressed with this Su-57 Felon 3D-printed model. The level of detail in the digital camouflage is fantastic, and the colors are vibrant and sharp.\n\n​What stands out most is the build quality—it is very durable and feels much sturdier than your average 3D print. It looks amazing on my desk, and I really loved the product. Highly recommended for any aviation fan!"
+			"icon": "🤖",
+			"title": "Robotics",
+			"description": "Competition robots, custom assemblies, brackets, mounts, and functional components."
 		},
 
 		{
-			"name": "Atindra Mondal",
-			"designation": "Retail Client",
-			"company": "",
-			"images": [
-				"images/reviews/atindra/image1.jpg"
-			],
-			"review": "Very impressive work with very innocent behaviour just like my own brother....Once again thank you dada for making this dream beyblade..."
+			"icon": "📡",
+			"title": "Electronics & IoT",
+			"description": "Custom enclosures, sensor housings, PCB mounts, and product casings."
 		},
 
 		{
-			"name": "Trisha Das",
-			"designation": "Retail Client",
-			"company": "",
-			"images": [
-				"images/reviews/trisha/image1.webp",
-				"images/reviews/trisha/image2.webp"
-			],
-			"review": "I am very happy and impressed with this pikachu pokeball 3D print. Quality is really good, despite how it looks it is smooth to the touch and since it has been assembled from parts it gives the overall structure more stability and rigidness.\n\nThe experience is very good, happy to add one of my childhood favourite, and will add more in future.\n\nYou can also make your own collection of pokaballs."
+			"icon": "🏛️",
+			"title": "Architecture",
+			"description": "High-detail architectural scale models, concept visualizations, and presentations."
 		},
 
 		{
-			"name": "Snehasish Nath",
-			"designation": "Retail Client",
-			"company": "",
-			"review": "Amazing service - got my model made so quick while keeping great quality!"
+			"icon": "🚀",
+			"title": "Product Development",
+			"description": "Rapid prototyping and iterative design validation for startups and inventors."
 		},
 
 		{
-			"name": "Bishwajit Kumar Poddar",
-			"designation": "Retail Client",
-			"company": "",
-			"images": [
-				"images/reviews/biswajit/image1.webp",
-				"images/reviews/biswajit/image2.webp"
-			],
-			"review": "One of the best and most affordable 3D printing services in Kolkata!\n\nI got a custom adapter printed for my DIY air purifier setup using an Atomberg exhaust fan and a Mi air filter. Based on his suggestion, I went with PETG instead of regular PLA — and that turned out to be a brilliant choice.\n\nThe adapter has fallen multiple times while cleaning the floor, but it still looks and works perfectly. Super strong print quality, great material recommendation, and excellent overall experience.\n\nHighly recommended if you need durable, well-made 3D printed parts without spending a fortune."
+			"icon": "🏭",
+			"title": "Manufacturing",
+			"description": "Production aids, jigs, fixtures, tooling, and low-volume manufacturing."
 		},
 
 		{
-			"name": "Sam",
-			"designation": "Retail Client",
-			"company": "",
-			"images": [
-				"images/reviews/sam/image1.webp",
-				"images/reviews/sam/image2.webp"
-			],
-			"review": "Layer8 Labs is my absolute go to place for 3D prints. Gaurav is always eager to help, and the quality of his prints is consistently exceptional. He is incredibly accommodating throughout the entire process.\n\nI remember having an issue with one of my 3D files a while back, and he went completely out of his way to fix the file himself to ensure it turned out perfectly. The prints are always great, the pricing is right on point, and it’s overall a complete pleasure working with him. I would highly recommend Layer8 Labs to anyone looking for a serious, high quality 3D printing service!"
+			"icon": "🎓",
+			"title": "Education & Research",
+			"description": "Academic projects, research prototypes, STEM demonstrations, and lab equipment."
+		},
+
+		{
+			"icon": "🚗",
+			"title": "Automotive",
+			"description": "Custom mounts, dashboard components, replacement parts, and test fixtures."
+		},
+
+		{
+			"icon": "🛠️",
+			"title": "Makers & Hobbyists",
+			"description": "Custom creations, DIY projects, cosplay parts, and personal builds."
+		}
+	],
+
+	"process": [
+		{
+			"step": "01",
+			"icon": "📩",
+			"title": "Share Your Requirement",
+			"description": "Send us your STL, STEP, OBJ, CAD file, sketch, or project requirement for review."
+		},
+
+		{
+			"step": "02",
+			"icon": "📋",
+			"title": "Technical Review & Quotation",
+			"description": "We evaluate printability, material selection, production approach, and provide a detailed quotation."
+		},
+
+		{
+			"step": "03",
+			"icon": "🖨️",
+			"title": "Manufacturing",
+			"description": "Your parts are produced using our FDM and SLA printing systems with quality checks throughout production."
+		},
+
+		{
+			"step": "04",
+			"icon": "✅",
+			"title": "Finishing & Quality Inspection",
+			"description": "Parts are inspected, cleaned, post-processed where required, and prepared for dispatch."
+		},
+
+		{
+			"step": "05",
+			"icon": "📦",
+			"title": "Delivery",
+			"description": "Securely packed parts are shipped across India or made available for local pickup."
 		}
 	],
 
@@ -218,13 +240,13 @@
 		{
 			"image": "images/portfolio/project4.jfif",
 			"category": "Low Volumne Manufacturing",
-			"title": "Custom Product Housing"
+			"title": "Aeroplane Bulk Production"
 		},
 
 		{
 			"image": "images/portfolio/project5.jpeg",
 			"category": "Architectural Scaled Models",
-			"title": "Building Crossectional View"
+			"title": "Building Cross-Section Topology"
 		},
 
 		{
@@ -236,9 +258,176 @@
 		{
 			"image": "images/portfolio/project7.jfif",
 			"category": "Retail Orders",
-			"title": "Custom /Client Provided Products"
+			"title": "Custom/Client Provided Products"
 		}
 	],
+
+	"caseStudies": [
+		{
+			"images": [
+				"images/case-studies/case-study-1/image1.jpg",
+				"images/case-studies/case-study-1/image2.jpg",
+				"images/case-studies/case-study-1/image3.jpg"
+			],
+
+			"title": "Aeroplane Batch Production",
+
+			"category": "Commercial Business",
+
+			"material": "PETG HS & TPU",
+
+			"quantity": "30 Units",
+
+			"challenge": "Required kids safe material while being strong enough to withstand random throws of children while playing",
+
+			"solution": "We recommended PETG to the client due to it's no chemical reactivity with most chemicals, while also being strong structurally. TPU were added to the wheels to absorb shocks when falling down or rolling on hard surfaces.",
+
+			"outcome": "Delivered a retail ready model which ensured it meets the kids safety standard and absorbs wear from playing of children."
+		},
+
+		{
+			"images": [
+				"images/case-studies/case-study-2/image1.jpg",
+				"images/case-studies/case-study-2/image2.jpg",
+				"images/case-studies/case-study-2/image3.jpg",
+				"images/case-studies/case-study-2/image4.jpg"
+			],
+
+			"title": "Medical Equipment",
+
+			"category": "Electronics",
+
+			"material": "PETG HS",
+
+			"quantity": "5 Units",
+
+			"challenge": "Needed a chemically inert material of a complex 3D printed structure for deploying in various hospitals PAN India.",
+
+			"solution": "Manufactured using PETG with post-processing and threaded insert integration. Broke up the model in parts to print with minimum supports and lesser rougher edges.",
+
+			"outcome": "Successfully deployed production-ready enclosures for medical facility operation."
+		},
+
+		{
+			"images": [
+				"images/case-studies/case-study-3/image1.jpg",
+				"images/case-studies/case-study-3/image2.jpg",
+				"images/case-studies/case-study-3/image3.jpg",
+				"images/case-studies/case-study-3/image4.jpg",
+				"images/case-studies/case-study-3/image5.jpg",
+				"images/case-studies/case-study-3/image6.jpg"
+			],
+
+			"title": "Architectural Presentation Model",
+
+			"category": "Architecture",
+
+			"material": "PLA and Standard Resin",
+
+			"quantity": "1 Scale Model",
+
+			"challenge": "Required a high-detail presentation model within a tight deadline.",
+
+			"solution": "Combined multiple printed sections with post-processing and assembly.",
+
+			"outcome": "Delivered a professional display model for investor presentations and exhibitions."
+		}
+	],
+
+	"confidentiality": {
+		"title": "Confidentiality & Intellectual Property",
+
+		"description": "We understand that many projects involve proprietary designs, product concepts, and confidential information. The Layer8 Labs respects client intellectual property and can work under Non-Disclosure Agreements (NDAs) when required.",
+
+		"points": [
+			"Client designs and files remain confidential",
+
+			"NDA support available upon request",
+
+			"No project information shared without permission",
+
+			"Secure handling of CAD files and design data",
+
+			"Respect for intellectual property and product ownership",
+
+			"Our printers will print completely disconnected from the internet in secured LAN"
+		]
+	},
+
+	"reviews": [
+		{
+			"name": "Dhirendra Singh",
+			"designation": "Retail Client",
+			"company": "",
+			"source": "Google",
+			"images": [
+				"images/reviews/dhirendra/image1.jpg",
+				"images/reviews/dhirendra/image2.jpg"
+			],
+			"review": "I am incredibly impressed with this Su-57 Felon 3D-printed model. The level of detail in the digital camouflage is fantastic, and the colors are vibrant and sharp.\n\n​What stands out most is the build quality—it is very durable and feels much sturdier than your average 3D print. It looks amazing on my desk, and I really loved the product. Highly recommended for any aviation fan!"
+		},
+
+		{
+			"name": "Atindra Mondal",
+			"designation": "Retail Client",
+			"company": "",
+			"source": "Google",
+			"images": ["images/reviews/atindra/image1.jpg"],
+			"review": "Very impressive work with very innocent behaviour just like my own brother....Once again thank you dada for making this dream beyblade..."
+		},
+
+		{
+			"name": "Trisha Das",
+			"designation": "Retail Client",
+			"company": "",
+			"source": "Google",
+			"images": [
+				"images/reviews/trisha/image1.webp",
+				"images/reviews/trisha/image2.webp"
+			],
+			"review": "I am very happy and impressed with this pikachu pokeball 3D print. Quality is really good, despite how it looks it is smooth to the touch and since it has been assembled from parts it gives the overall structure more stability and rigidness.\n\nThe experience is very good, happy to add one of my childhood favourite, and will add more in future.\n\nYou can also make your own collection of pokaballs."
+		},
+
+		{
+			"name": "Snehasish Nath",
+			"designation": "Retail Client",
+			"company": "",
+			"source": "Google",
+			"review": "Amazing service - got my model made so quick while keeping great quality!"
+		},
+
+		{
+			"name": "Bishwajit Kumar Poddar",
+			"designation": "Retail Client",
+			"company": "",
+			"source": "Google",
+			"images": [
+				"images/reviews/biswajit/image1.webp",
+				"images/reviews/biswajit/image2.webp"
+			],
+			"review": "One of the best and most affordable 3D printing services in Kolkata!\n\nI got a custom adapter printed for my DIY air purifier setup using an Atomberg exhaust fan and a Mi air filter. Based on his suggestion, I went with PETG instead of regular PLA — and that turned out to be a brilliant choice.\n\nThe adapter has fallen multiple times while cleaning the floor, but it still looks and works perfectly. Super strong print quality, great material recommendation, and excellent overall experience.\n\nHighly recommended if you need durable, well-made 3D printed parts without spending a fortune."
+		},
+
+		{
+			"name": "Sam",
+			"designation": "Retail Client",
+			"company": "",
+			"source": "Google",
+			"images": [
+				"images/reviews/sam/image1.webp",
+				"images/reviews/sam/image2.webp"
+			],
+			"review": "Layer8 Labs is my absolute go to place for 3D prints. Gaurav is always eager to help, and the quality of his prints is consistently exceptional. He is incredibly accommodating throughout the entire process.\n\nI remember having an issue with one of my 3D files a while back, and he went completely out of his way to fix the file himself to ensure it turned out perfectly. The prints are always great, the pricing is right on point, and it’s overall a complete pleasure working with him. I would highly recommend Layer8 Labs to anyone looking for a serious, high quality 3D printing service!"
+		}
+	],
+
+	"companyProfile": {
+		"title": "Download Company Profile",
+
+		"description": "Learn more about our capabilities, materials, equipment, services, and manufacturing solutions.",
+
+		"file": "assets/documents/company-profile.pdf"
+	},
 
 	"contact": {
 		"email": "info.thelayer8labs@gmail.com",
@@ -278,8 +467,16 @@
 				{
 					"label": "Printers",
 					"items": [
-						{ "name": "Bambu Lab H2S", "image": "images/printers/BambuLabH2S.png", "description": "High-speed FDM printer." },
-						{ "name": "Bambu Lab P1S", "image": "images/printers/BambuLabP1S.png", "description": "Reliable desktop FDM printer." }
+						{
+							"name": "Bambu Lab H2S",
+							"image": "images/printers/BambuLabH2S.png",
+							"description": "High-speed FDM printer."
+						},
+						{
+							"name": "Bambu Lab P1S",
+							"image": "images/printers/BambuLabP1S.png",
+							"description": "Reliable desktop FDM printer."
+						}
 					]
 				},
 				{
@@ -288,7 +485,14 @@
 						{
 							"label": "Numakers",
 							"logo": "images/brands/numakers.png",
-							"values": ["PLA Pro", "PLA+", "PETG HS", "ASA", "PLA-CF", "PETG-CF"]
+							"values": [
+								"PLA Pro",
+								"PLA+",
+								"PETG HS",
+								"ASA",
+								"PLA-CF",
+								"PETG-CF"
+							]
 						},
 						{
 							"label": "Bambu Lab",
@@ -315,17 +519,41 @@
 				{
 					"label": "Printers",
 					"items": [
-						{ "name": "Anycubic Photon Mono 4 Ultra", "image": "images/printers/AnycubicPhotonMono4Ultra.png", "description": "High-resolution resin printer." },
-						{ "name": "Anycubic Photon Mono M7 Pro", "image": "images/printers/AnycubicPhotonMonoM7Pro.png", "description": "Large-format resin printing." }
+						{
+							"name": "Anycubic Photon Mono 4 Ultra",
+							"image": "images/printers/AnycubicPhotonMono4Ultra.png",
+							"description": "High-resolution resin printer."
+						},
+						{
+							"name": "Anycubic Photon Mono M7 Pro",
+							"image": "images/printers/AnycubicPhotonMonoM7Pro.png",
+							"description": "Large-format resin printing."
+						}
 					]
 				},
 				{
 					"label": "Materials",
 					"items": [
-						{ "label": "Anycubic", "logo": "images/brands/anycubic.png", "values": ["Standard", "Clear", "High Clear", "ABS Like"] },
-						{ "label": "Sunlu", "logo": "images/brands/sunlu.png", "values": ["Standard", "ABS Like"] },
-						{ "label": "Elegoo", "logo": "images/brands/elegoo.png", "values": [] },
-						{ "label": "Filamont", "logo": "images/brands/filamont.png", "values": [] }
+						{
+							"label": "Anycubic",
+							"logo": "images/brands/anycubic.png",
+							"values": ["Standard", "Clear", "High Clear", "ABS Like"]
+						},
+						{
+							"label": "Sunlu",
+							"logo": "images/brands/sunlu.png",
+							"values": ["Standard", "ABS Like"]
+						},
+						{
+							"label": "Elegoo",
+							"logo": "images/brands/elegoo.png",
+							"values": []
+						},
+						{
+							"label": "Filamont",
+							"logo": "images/brands/filamont.png",
+							"values": []
+						}
 					]
 				}
 			]
@@ -346,7 +574,7 @@
 			"logo": "images/icons/trust/quality.webp"
 		},
 		{
-			"title": "Made in India",
+			"title": "Make in India",
 			"logo": "images/icons/trust/made-in-india.png"
 		},
 		{
@@ -426,5 +654,10 @@
 		],
 
 		"copyright": "© 2026 The Layer8 Labs. All Rights Reserved. Made with ♥ in India."
+	},
+	"googleBusiness": {
+		"rating": 5.0,
+		"reviewCount": 23,
+		"profileUrl": "https://share.google/hiOFEX9gt9kelKWU4"
 	}
 }
