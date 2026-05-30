@@ -10,7 +10,7 @@
 
 		"primaryButtonLink": "#gallery",
 
-		"secondaryButtonText": "Contact Us",
+		"secondaryButtonText": "Get a Free Quote",
 
 		"secondaryButtonLink": "#contact",
 
@@ -136,7 +136,7 @@
 	"reviews": [
 		{
 			"name": "Dhirendra Singh",
-			"designation": "Retial Client",
+			"designation": "Retail Client",
 			"company": "",
 			"images": [
 				"images/reviews/dhirendra/image1.jpg",
@@ -147,7 +147,7 @@
 
 		{
 			"name": "Atindra Mondal",
-			"designation": "Retial Client",
+			"designation": "Retail Client",
 			"company": "",
 			"images": [
 				"images/reviews/atindra/image1.jpg"
@@ -157,7 +157,7 @@
 
 		{
 			"name": "Trisha Das",
-			"designation": "Retial Client",
+			"designation": "Retail Client",
 			"company": "",
 			"images": [
 				"images/reviews/trisha/image1.webp",
@@ -267,7 +267,7 @@
 		},
 		{
 			"question": "Do you provide batch products manufacturing?",
-			"answer": "Absolutely, in fact that is one of our strenghts with the quality of machines and materials we use, we can provide very consistent and repitative 3d printed products."
+			"answer": "Absolutely, in fact that is one of our strengths with the quality of machines and materials we use, we can provide very consistent and repitative 3d printed products."
 		}
 	],
 
