@@ -220,45 +220,85 @@
 
 	"gallery": [
 		{
-			"image": "images/portfolio/project1.jpeg",
+			"images": [
+				"images/portfolio/1/1.jpg",
+				"images/portfolio/1/2.jpg",
+				"images/portfolio/1/3.jpg",
+				"images/portfolio/1/4.jpg",
+				"images/portfolio/1/5.jpg",
+				"images/portfolio/1/6.jpg"
+			],
 			"category": "Functional Parts",
 			"title": "Engineering Prototype"
 		},
 
 		{
-			"image": "images/portfolio/project2.jfif",
+			"images": ["images/portfolio/2/1.jfif"],
 			"category": "SLA Printing",
 			"title": "Resin Miniatures"
 		},
 
 		{
-			"image": "images/portfolio/project3.webp",
+			"images": [
+				"images/portfolio/3/1.jpg",
+				"images/portfolio/3/2.jpg",
+				"images/portfolio/3/3.jpg"
+			],
 			"category": "Rapid Prototyping",
 			"title": "Mechanical Test Fit"
 		},
 
 		{
-			"image": "images/portfolio/project4.jfif",
-			"category": "Low Volumne Manufacturing",
-			"title": "Aeroplane Bulk Production"
+			"images": [
+				"images/portfolio/4/1.jpg",
+				"images/portfolio/4/2.jpg",
+				"images/portfolio/4/3.jpg",
+				"images/portfolio/4/4.jpg",
+				"images/portfolio/4/5.jpg",
+				"images/portfolio/4/6.jpg"
+			],
+			"category": "Short Run Manufacturing",
+			"title": "Bulk Production"
 		},
 
 		{
-			"image": "images/portfolio/project5.jpeg",
+			"images": [
+				"images/portfolio/5/1.jpg",
+				"images/portfolio/5/2.jpg",
+				"images/portfolio/5/3.jpg",
+				"images/portfolio/5/4.jpg"
+			],
 			"category": "Architectural Scaled Models",
 			"title": "Building Cross-Section Topology"
 		},
 
 		{
-			"image": "images/portfolio/project6.jpg",
-			"category": "Product Design",
-			"title": "Custom Product Design"
+			"images": [
+				"images/portfolio/6/1.jpg",
+				"images/portfolio/6/2.png",
+				"images/portfolio/6/3.png",
+				"images/portfolio/6/4.png"
+			],
+			"category": "CAD Designing Services",
+			"title": "Custom Designs"
 		},
 
 		{
-			"image": "images/portfolio/project7.jfif",
+			"images": [
+				"images/portfolio/7/1.jpg",
+				"images/portfolio/7/2.jpg",
+				"images/portfolio/7/3.jpg",
+				"images/portfolio/7/4.jpg",
+				"images/portfolio/7/5.jpg",
+				"images/portfolio/7/6.jpg",
+				"images/portfolio/7/7.jpg",
+				"images/portfolio/7/8.jpg",
+				"images/portfolio/7/9.jpg",
+				"images/portfolio/7/10.jpg",
+				"images/portfolio/7/11.jpg"
+			],
 			"category": "Retail Orders",
-			"title": "Custom/Client Provided Products"
+			"title": "Custom Client Deliveries"
 		}
 	],
 
@@ -480,7 +520,7 @@
 					]
 				},
 				{
-					"label": "Materials",
+					"label": "Filaments",
 					"items": [
 						{
 							"label": "Numakers",
@@ -522,17 +562,17 @@
 						{
 							"name": "Anycubic Photon Mono 4 Ultra",
 							"image": "images/printers/AnycubicPhotonMono4Ultra.png",
-							"description": "High-resolution resin printer."
+							"description": "Affordable high resolution small format resin printer."
 						},
 						{
 							"name": "Anycubic Photon Mono M7 Pro",
 							"image": "images/printers/AnycubicPhotonMonoM7Pro.png",
-							"description": "Large-format resin printing."
+							"description": "High-resolution medium format resin printer."
 						}
 					]
 				},
 				{
-					"label": "Materials",
+					"label": "UV Resins",
 					"items": [
 						{
 							"label": "Anycubic",
@@ -547,12 +587,12 @@
 						{
 							"label": "Elegoo",
 							"logo": "images/brands/elegoo.png",
-							"values": []
+							"values": ["Standard, Clear"]
 						},
 						{
 							"label": "Filamont",
 							"logo": "images/brands/filamont.png",
-							"values": []
+							"values": ["Standard"]
 						}
 					]
 				}
@@ -629,28 +669,6 @@
 			"Low Volume Manufacturing",
 
 			"Architectural Scale Models"
-		],
-
-		"socials": [
-			{
-				"name": "Instagram",
-				"url": "https://instagram.com/thelayer8labs"
-			},
-
-			{
-				"name": "LinkedIn",
-				"url": "https://linkedin.com/company/thelayer8labs"
-			},
-
-			{
-				"name": "Email",
-				"url": "mailto:yourmail@example.com"
-			},
-
-			{
-				"name": "WhatsApp",
-				"url": "https://wa.me/919876543210"
-			}
 		],
 
 		"copyright": "© 2026 The Layer8 Labs. All Rights Reserved. Made with ♥ in India."

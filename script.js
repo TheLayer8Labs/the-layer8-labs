@@ -447,54 +447,147 @@ fetch("data/site-data.json")
 		}
 
 		// =========================================
+		// POPUP CREATION (used by both gallery and reviews)
+		// =========================================
+
+		const reviewPopup = document.createElement("div");
+		reviewPopup.className = "review-image-popup";
+		reviewPopup.hidden = true;
+		reviewPopup.innerHTML = `
+		<div class="review-image-popup-backdrop"></div>
+		<div class="review-image-popup-content">
+			<button type="button" class="popup-close" aria-label="Close image">×</button>
+			<button type="button" class="popup-nav-prev" aria-label="Previous image" style="display:none;"><i class="fas fa-chevron-left"></i></button>
+			<img src="" alt="Gallery image" />
+			<button type="button" class="popup-nav-next" aria-label="Next image" style="display:none;"><i class="fas fa-chevron-right"></i></button>
+			<div class="popup-nav-controls" style="display:none;">
+				<span class="popup-image-counter"></span>
+			</div>
+			<div class="popup-caption"></div>
+		</div>
+	`;
+		document.body.appendChild(reviewPopup);
+
+		const updatePopupImage = () => {
+			const popupImg = reviewPopup.querySelector("img");
+			const counter = reviewPopup.querySelector(".popup-image-counter");
+			const navControls = reviewPopup.querySelector(".popup-nav-controls");
+			const prevBtn = reviewPopup.querySelector(".popup-nav-prev");
+			const nextBtn = reviewPopup.querySelector(".popup-nav-next");
+
+			if (reviewPopup.currentImages) {
+				const img = reviewPopup.currentImages[reviewPopup.currentImageIndex];
+				if (popupImg) popupImg.src = img;
+				
+				const isMultiple = reviewPopup.currentImages.length > 1;
+				
+				if (counter && navControls) {
+					counter.textContent = `${reviewPopup.currentImageIndex + 1} / ${reviewPopup.currentImages.length}`;
+					navControls.style.display = isMultiple ? "flex" : "none";
+				}
+				if (prevBtn) {
+					prevBtn.style.display = isMultiple ? "flex" : "none";
+				}
+				if (nextBtn) {
+					nextBtn.style.display = isMultiple ? "flex" : "none";
+				}
+			}
+		};
+
+		reviewPopup.addEventListener("click", (event) => {
+			if (
+				event.target.matches(".popup-close") ||
+				event.target.matches(".review-image-popup-backdrop")
+			) {
+				reviewPopup.hidden = true;
+				reviewPopup.querySelector("img").src = "";
+			} else if (event.target.closest(".popup-nav-prev")) {
+				if (
+					reviewPopup.currentImages &&
+					reviewPopup.currentImageIndex > 0
+				) {
+					reviewPopup.currentImageIndex--;
+					updatePopupImage();
+				}
+			} else if (event.target.closest(".popup-nav-next")) {
+				if (
+					reviewPopup.currentImages &&
+					reviewPopup.currentImageIndex <
+						reviewPopup.currentImages.length - 1
+				) {
+					reviewPopup.currentImageIndex++;
+					updatePopupImage();
+				}
+			}
+		});
+
+		// =========================================
 		// GALLERY
 		// =========================================
 
 		const galleryContainer = document.getElementById("gallery-container");
 
-		if (galleryContainer) {
-			data.gallery.forEach((project) => {
+		if (galleryContainer && data.gallery) {
+			data.gallery.forEach((project, projectIndex) => {
 				galleryContainer.innerHTML += `
-
-                    <div class="gallery-item">
-
-                        <img src="${project.image}" alt="${project.title}">
-
+                    <div class="gallery-item" data-images='${JSON.stringify(project.images)}' data-project-index="${projectIndex}">
+                        <img 
+                            src="${project.images[0]}" 
+                            alt="${project.title}"
+                            class="gallery-main-image"
+                        >
+                        ${project.images.length > 1 ? `
+                            <div class="gallery-carousel-indicator">
+                                <span class="carousel-count">${project.images.length}</span>
+                                <i class="fas fa-images"></i>
+                            </div>
+                        ` : ""}
                         <div class="gallery-overlay">
-
                             <span class="gallery-category">
                                 ${project.category}
                             </span>
-
                             <h3>
                                 ${project.title}
                             </h3>
-
                         </div>
-
                     </div>
-
                 `;
 			});
 
-			// Open gallery image in the shared image popup when clicked (detect clicks anywhere inside .gallery-item)
+			const galleryItems = galleryContainer.querySelectorAll(".gallery-item");
+
+			galleryItems.forEach((item) => {
+				const images = JSON.parse(item.dataset.images || "[]");
+				if (images.length < 2) return;
+
+				const image = item.querySelector("img");
+				let current = 0;
+
+				setInterval(() => {
+					current = (current + 1) % images.length;
+					image.style.opacity = "0";
+
+					setTimeout(() => {
+						image.src = images[current];
+						image.onload = () => {
+							image.style.opacity = "1";
+						};
+					}, 500);
+				}, 3000);
+			});
+
 			galleryContainer.addEventListener("click", (e) => {
 				const galleryItem = e.target.closest(".gallery-item");
 				if (!galleryItem) return;
-				const imgEl = galleryItem.querySelector("img");
-				if (!imgEl) return;
-				const src = imgEl.getAttribute("src");
-				const title =
-					imgEl.getAttribute("alt") ||
-					(galleryItem.querySelector("h3")
-						? galleryItem.querySelector("h3").innerText
-						: "Gallery image");
-				const popupImage = reviewPopup.querySelector("img");
-				const popupCaption = reviewPopup.querySelector(".popup-caption");
-				if (popupImage) popupImage.src = src;
-				if (popupImage) popupImage.alt = title;
-				if (popupCaption) popupCaption.textContent = title;
-				reviewPopup.hidden = false;
+
+				const images = JSON.parse(galleryItem.dataset.images || "[]");
+				const title = galleryItem.querySelector("h3")?.innerText || "Gallery image";
+
+				modalImages = images;
+				modalIndex = 0;
+				modalImage.src = images[0] || "";
+				modalImage.alt = title;
+				modal.classList.add("active");
 			});
 		}
 
@@ -599,15 +692,66 @@ fetch("data/site-data.json")
 			});
 
 			const caseCarousels = document.querySelectorAll(".case-carousel");
+			const setCaseStudyCardMinHeights = () => {
+				const cards = Array.from(document.querySelectorAll(".case-study-card"));
+				if (!cards.length) return;
+
+				const maxHeight = cards.reduce((max, card) => {
+					return Math.max(max, card.offsetHeight);
+				}, 0);
+
+				cards.forEach((card) => {
+					card.style.minHeight = `${maxHeight}px`;
+				});
+			};
+
 			caseCarousels.forEach((carousel) => {
 				const images = JSON.parse(carousel.dataset.images);
 
 				if (!images || !images.length) return;
 
-				let current = 0;
 				const image = carousel.querySelector("img");
 				if (!image) return;
 
+				const imageSizes = [];
+				let loadedCount = 0;
+
+				const updateCarouselHeight = () => {
+					if (loadedCount !== images.length) return;
+					const width = carousel.clientWidth || 400;
+					const maxHeight = imageSizes.reduce((max, size) => {
+						if (!size || size.width === 0) return max;
+						const height = (size.height * width) / size.width;
+						return Math.max(max, height);
+					}, 0);
+
+					if (maxHeight > 0) {
+						carousel.style.height = `${Math.ceil(maxHeight)}px`;
+						carousel.style.minHeight = `${Math.ceil(maxHeight)}px`;
+						setCaseStudyCardMinHeights();
+					}
+				};
+
+				images.forEach((src, index) => {
+					const tempImg = new Image();
+					tempImg.onload = () => {
+						imageSizes[index] = {
+							width: tempImg.naturalWidth,
+							height: tempImg.naturalHeight,
+						};
+						loadedCount += 1;
+						updateCarouselHeight();
+					};
+					tempImg.onerror = () => {
+						loadedCount += 1;
+						updateCarouselHeight();
+					};
+					tempImg.src = src;
+				});
+
+				carousel.updateHeight = updateCarouselHeight;
+
+				let current = 0;
 				setInterval(() => {
 					current = (current + 1) % images.length;
 
@@ -617,9 +761,19 @@ fetch("data/site-data.json")
 						image.src = images[current];
 						image.onload = () => {
 							image.style.opacity = "1";
+							setCaseStudyCardMinHeights();
 						};
 					}, 500);
 				}, 3000);
+			});
+
+			window.addEventListener("resize", () => {
+				caseCarousels.forEach((carousel) => {
+					if (typeof carousel.updateHeight === "function") {
+						carousel.updateHeight();
+					}
+				});
+				setCaseStudyCardMinHeights();
 			});
 		}
 
@@ -753,29 +907,6 @@ fetch("data/site-data.json")
 		// =========================================
 
 		const reviewsContainer = document.getElementById("reviews-container");
-
-		const reviewPopup = document.createElement("div");
-		reviewPopup.className = "review-image-popup";
-		reviewPopup.hidden = true;
-		reviewPopup.innerHTML = `
-		<div class="review-image-popup-backdrop"></div>
-		<div class="review-image-popup-content">
-			<button type="button" class="popup-close" aria-label="Close image">×</button>
-			<img src="" alt="Review image" />
-			<div class="popup-caption"></div>
-		</div>
-	`;
-		document.body.appendChild(reviewPopup);
-
-		reviewPopup.addEventListener("click", (event) => {
-			if (
-				event.target.matches(".popup-close") ||
-				event.target.matches(".review-image-popup-backdrop")
-			) {
-				reviewPopup.hidden = true;
-				reviewPopup.querySelector("img").src = "";
-			}
-		});
 
 		if (reviewsContainer) {
 			const duplicatedReviews = [...data.reviews, ...data.reviews];
@@ -1054,26 +1185,10 @@ fetch("data/site-data.json")
 
             <ul>
 
-                ${data.footer.socials
-									.map(
-										(social) => `
-
-                    <li>
-
-                        <a
-                            href="${social.url}"
-                            target="_blank"
-                        >
-
-                            ${social.name}
-
-                        </a>
-
-                    </li>
-
-                `,
-									)
-									.join("")}
+                ${data.contact.instagram ? `<li><a href="${data.contact.instagram}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a></li>` : ""}
+                ${data.contact.linkedin ? `<li><a href="${data.contact.linkedin}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a></li>` : ""}
+                ${data.contact.email ? `<li><a href="mailto:${data.contact.email}" title="Email"><i class="fas fa-envelope"></i> Email</a></li>` : ""}
+                ${data.contact.whatsapp ? `<li><a href="https://wa.me/${data.contact.whatsapp}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>` : ""}
 
             </ul>
 
@@ -1185,11 +1300,8 @@ document.addEventListener("click", (event) => {
 });
 
 let modalImages = [];
-
 let modalIndex = 0;
-
 const modal = document.getElementById("caseModal");
-
 const modalImage = document.getElementById("caseModalImage");
 
 document.addEventListener("click", (e) => {
@@ -1228,4 +1340,34 @@ document.getElementById("caseModalNext").addEventListener("click", () => {
 	}
 
 	modalImage.src = modalImages[modalIndex];
+});
+
+let touchStartX = null;
+modal.addEventListener("touchstart", (event) => {
+	touchStartX = event.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", (event) => {
+	if (touchStartX === null) return;
+
+	const touchEndX = event.changedTouches[0].clientX;
+	const delta = touchEndX - touchStartX;
+
+	if (Math.abs(delta) > 60) {
+		if (delta > 0) {
+			modalIndex--;
+			if (modalIndex < 0) {
+				modalIndex = modalImages.length - 1;
+			}
+		} else {
+			modalIndex++;
+			if (modalIndex >= modalImages.length) {
+				modalIndex = 0;
+			}
+		}
+
+		modalImage.src = modalImages[modalIndex];
+	}
+
+	touchStartX = null;
 });
