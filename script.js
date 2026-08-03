@@ -75,6 +75,19 @@ window.addEventListener("scroll", revealOnScroll);
 
 revealOnScroll();
 
+const formatPopupText = (value) => {
+	if (value == null) return "";
+
+	return String(value)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;")
+		.replace(/\r\n?/g, "\n")
+		.replace(/\n/g, "<br>");
+};
+
 // =========================================
 // LOAD WEBSITE DATA
 // =========================================
@@ -83,6 +96,84 @@ fetch("data/site-data.json")
 	.then((response) => response.json())
 
 	.then((data) => {
+		// =========================================
+		// NOTICE POPUP
+		// =========================================
+
+		if (data.noticePopup?.enabled) {
+			const popupConfig = data.noticePopup;
+			const popupOverlay = document.createElement("div");
+			popupOverlay.className = "notice-popup-overlay";
+			popupOverlay.setAttribute("aria-hidden", "true");
+			popupOverlay.innerHTML = `
+				<div class="notice-popup-card" role="dialog" aria-modal="true" aria-labelledby="notice-popup-title">
+					<div class="notice-popup-content">
+						<h3 id="notice-popup-title">${formatPopupText(popupConfig.header || "Notice")}</h3>
+						<p class="notice-popup-body">${formatPopupText(popupConfig.body || "")}</p>
+						${
+							popupConfig.thirdSectionTitle && popupConfig.thirdSectionValue
+								? `
+								<div class="notice-popup-third">
+									<span class="notice-popup-third-title">${formatPopupText(popupConfig.thirdSectionTitle)}</span>
+									<p>${formatPopupText(popupConfig.thirdSectionValue)}</p>
+								</div>
+								`
+								: ""
+						}
+						<button type="button" class="notice-popup-close-btn">${formatPopupText(popupConfig.buttonText || "OK")}</button>
+					</div>
+				</div>
+			`;
+
+			document.body.appendChild(popupOverlay);
+
+			const popupCard = popupOverlay.querySelector(".notice-popup-card");
+			const closeButton = popupOverlay.querySelector(".notice-popup-close-btn");
+			const autoCloseSeconds = Number(popupConfig.autoCloseSeconds || 10);
+			const showAfterMs = Number(popupConfig.showAfterMs || 700);
+			let remainingTime = autoCloseSeconds;
+			let timerId = null;
+
+			const updateProgress = () => {
+				if (!popupCard) return;
+				const progress = Math.max(0, (remainingTime / autoCloseSeconds) * 100);
+				popupCard.style.setProperty("--progress", `${Math.max(0, progress)}%`);
+			};
+
+			const closePopup = () => {
+				if (timerId) clearInterval(timerId);
+				popupOverlay.classList.remove("is-visible");
+				popupOverlay.classList.add("is-closing");
+				popupOverlay.setAttribute("aria-hidden", "true");
+				setTimeout(() => popupOverlay.remove(), 320);
+			};
+
+			const startTimer = () => {
+				updateProgress();
+				timerId = setInterval(() => {
+					remainingTime -= 1;
+					updateProgress();
+					if (remainingTime <= 0) {
+						clearInterval(timerId);
+						closePopup();
+					}
+				}, 1000);
+			};
+
+			setTimeout(() => {
+				popupOverlay.classList.add("is-visible");
+				popupOverlay.setAttribute("aria-hidden", "false");
+				startTimer();
+			}, showAfterMs);
+
+			closeButton?.addEventListener("click", closePopup);
+			popupOverlay.addEventListener("click", (event) => {
+				if (event.target === popupOverlay) {
+					closePopup();
+				}
+			});
+		}
+
 		// =========================================
 		// HERO SECTION
 		// =========================================

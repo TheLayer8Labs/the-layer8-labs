@@ -32,6 +32,17 @@
 		]
 	},
 
+	"noticePopup": {
+		"enabled": true,
+		"header": "Important Update: SLA Printing Temporarily Unavailable",
+		"body": "We are currently experiencing technical issues with our SLA printers and have temporarily paused new SLA printing orders while we work to resolve the issue.\n\nOur FDM printing service is operating normally and continues to accept orders.\n\nWe apologize for the inconvenience and appreciate your patience.",
+		"thirdSectionTitle": "Estimated Resolution",
+		"thirdSectionValue": "To be announced",
+		"buttonText": "OK",
+		"autoCloseSeconds": 30,
+		"showAfterMs": 700
+	},
+
 	"about": {
 		"tag": "ABOUT US",
 
@@ -68,7 +79,7 @@
 
 	"businessStats": [
 		{
-			"number": "75+",
+			"number": "70+",
 			"label": "Orders Completed"
 		},
 
@@ -78,13 +89,13 @@
 		},
 
 		{
-			"number": "1500+",
+			"number": "1800+",
 			"label": "Printing Hours"
 		},
 
 		{
 			"number": "10+",
-			"label": "Engineering Projects"
+			"label": "Corporate Projects"
 		}
 	],
 
