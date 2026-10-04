@@ -79,22 +79,22 @@
 
 	"businessStats": [
 		{
-			"number": "70+",
+			"number": "130+",
 			"label": "Orders Completed"
 		},
 
 		{
-			"number": "40+",
+			"number": "60+",
 			"label": "Happy Customers"
 		},
 
 		{
-			"number": "1800+",
+			"number": "2500+",
 			"label": "Printing Hours"
 		},
 
 		{
-			"number": "10+",
+			"number": "15+",
 			"label": "Corporate Projects"
 		}
 	],
